@@ -1,0 +1,24 @@
+header {
+  position: fixed;
+  top: 30px;
+  left: 130px;
+  right: 130px;
+  height: 40px;
+  padding: 0 28px;
+
+  background-color: rgba(255, 255, 255, 0.591);
+
+  border: 2px solid white;
+  border-radius: 12px;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav {
+    width: fit-content;
+    display: flex;
+    gap: 30px;
+  }
+}
