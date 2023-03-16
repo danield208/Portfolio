@@ -18,14 +18,18 @@ export class HeaderComponent {
 		let target = lang.target as HTMLSpanElement;
 		let siblings = target.parentElement?.querySelectorAll("span");
 
-		this.translate.use(target.attributes[1].value);
+		this.setLanguage(target);
+		this.setLanguagePicker_style(siblings);
+	}
 
-		siblings?.forEach((elem) => {
-			if (elem.classList.value == "") {
-				elem.classList.value = "active";
-			} else {
-				elem.classList.value = "";
-			}
+	setLanguage(target: HTMLSpanElement) {
+		this.translate.use(target.attributes[1].value);
+	}
+
+	setLanguagePicker_style(siblings: any) {
+		siblings?.forEach((elem: HTMLSpanElement) => {
+			if (elem.classList.value == "") elem.classList.value = "active";
+			else elem.classList.value = "";
 		});
 	}
 }

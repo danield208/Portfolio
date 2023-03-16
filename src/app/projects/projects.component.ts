@@ -17,7 +17,7 @@ export class ProjectsComponent {
 		await fetch("assets/data/projects.json")
 			.then((response) => response.json())
 			.then((json) => {
-				Object.entries(json).forEach((key, value) => {
+				Object.entries(json).forEach((key) => {
 					this.projects.push(key[1]);
 				});
 			});

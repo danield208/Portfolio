@@ -1,6 +1,6 @@
-<h1>An meiner Person interessiert?</h1>
+<h1 [innerHTML]="'contact.text.interest' | translate">###</h1>
 <div class="socialMedia">
-    <h2>Erreiche mich Online,</h2>
+    <h2 [innerHTML]="'contact.text.contact' | translate">###</h2>
     <div>
         <img src="" alt="instagram">
         <img src="" alt="in">
@@ -9,11 +9,11 @@
     </div>
 </div>
 <div class="contactForm">
-    <h2>oder schicke mir direkt eine Nachricht:</h2>
+    <h2 [innerHTML]="'contact.text.contact_here' | translate">###</h2>
     <form (submit)="sendMail()" ngNativeValidate #contactform>
-        <input required name="name" placeholder="Name und Nachname" #nameField>
-        <input required name="email" placeholder="E-Mail Adresse" #mailField>
-        <textarea required name="message" placeholder="Nachricht..." #messageField></textarea>
-        <button #formButton>Senden</button>
+        <input required name="name" [placeholder]="'contact.form.name' | translate" #nameField>
+        <input required name="email" [placeholder]="'contact.form.mail' | translate" #mailField>
+        <textarea required name="message" [placeholder]="'contact.form.message' | translate" #messageField></textarea>
+        <button translate #formButton>Send</button>
     </form>
 </div>

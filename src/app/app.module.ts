@@ -17,10 +17,11 @@ import { FooterComponent } from "./footer/footer.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UsersettingsComponent } from "./usersettings.component";
 import { TranslateLoader } from "@ngx-translate/core";
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-	return new TranslateHttpLoader(http);
+	return new TranslateHttpLoader(http, "assets/i18n/", ".json");
 }
 
 @NgModule({
@@ -34,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		ContactComponent,
 		FooterComponent,
 		UsersettingsComponent,
+  PersonalInfoComponent,
 	],
 	imports: [
 		BrowserModule,

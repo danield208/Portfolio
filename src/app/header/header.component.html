@@ -1,11 +1,11 @@
-<p>DD</p>
+<h1>DD</h1>
 <nav>
-    <span translate class="active">Start</span>
-    <span>Projects</span>
-    <span>Contact Me</span>
+    <span class="active">Start</span>
+    <span [innerHTML]="'header.projects' | translate">###</span>
+    <span [innerHTML]="'header.contact' | translate">###</span>
     <div>
-        <span class="active" (click)="changeLang($event)" value="en">EN</span>
+        <span class="active" (click)="changeLang($event)" value="de">DE</span>
         <p>|</p>
-        <span (click)="changeLang($event)" value="de">DE</span>
+        <span (click)="changeLang($event)" value="en">EN</span>
     </div>
 </nav>

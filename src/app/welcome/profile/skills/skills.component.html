@@ -1,10 +1,18 @@
-<img src="./assets/images/icons/html.png" alt="HTML">
-<img src="./assets/images/icons/css.png" alt="CSS">
-<img src="./assets/images/icons/javascript.png" alt="JS">
-<img src="./assets/images/icons/angular.png" alt="Angular">
-<img src="./assets/images/icons/api.png" alt="API">
-<img src="./assets/images/icons/git.png" alt="Git">
-<!-- <img src="../../../../assets/images/icons/wordpress.png" alt="WordPress"> -->
-<img src="./assets/images/icons/scrum.png" alt="Scrum">
-<img src="./assets/images/icons/typescript.png" alt="Typescript">
-<!-- <img src="../../../../assets/images/icons/dunno.png" alt="dunno"> -->
+<content (mouseenter)="openInfobox()" (mouseleave)="closeInfobox()">
+    <div *ngIf="infobox" class="infobox" [ngClass]="classList">
+
+    </div>
+
+    <div class="skillbox">
+        <img src="./assets/images/icons/html.png" alt="HTML">
+        <img src="./assets/images/icons/css.png" alt="CSS">
+        <img src="./assets/images/icons/javascript.png" alt="JS">
+        <img src="./assets/images/icons/typescript.png" alt="Typescript">
+        <img src="./assets/images/icons/angular.png" alt="Angular">
+        <img src="./assets/images/icons/api.png" alt="API">
+        <img src="./assets/images/icons/git.png" alt="Git">
+        <img src="./assets/images/icons/scrum.png" alt="Scrum">
+        <!-- <img src="../../../../assets/images/icons/wordpress.png" alt="WordPress"> -->
+        <!-- <img src="../../../../assets/images/icons/dunno.png" alt="dunno"> -->
+    </div>
+</content>

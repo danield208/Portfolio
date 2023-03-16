@@ -1,3 +1,36 @@
 {
-	"Start": "Englisch"
+	"startpage": {
+		"greeting": "Welcome <br> to my <br> portfolio"
+	},
+
+	"contact": {
+		"form": {
+			"name": "Name and Surname:",
+			"mail": "E-Mail adress:",
+			"message": "Message:"
+		},
+		"text": {
+			"interest": "Interestet in my person?",
+			"contact": "Contact me online,",
+			"contact_here": "or just contact me here:"
+		}
+	},
+	"Send": "Send",
+
+	"header": {
+		"projects": "Projects",
+		"contact": "Contact Me"
+	},
+
+	"profile": "Hallo, my name is Daniel Dörbaum. <br> Here you can find my projects, skills, personal infos and how to get into contact with me.",
+
+	"projects": {
+		"title": "My Projects",
+		"buttons": {
+			"visit": "Visit Site"
+		},
+		"wetterAPI_info": "A small weather WebApp for mobile use optimized. With the help of an weather API, there are displayed serveal information of the waether.",
+		"join_info": "Join is a business WebApp. With her you can manage Tasks for your projects.",
+		"slacClone_info": "Slac clone is, like the name indicates, a clone of the famous chatplatform 'Slack'."
+	}
 }

@@ -29,6 +29,10 @@ app-header {
 	align-items: center;
 
 	z-index: 9999;
+
+	&.active {
+		background-color: black;
+	}
 }
 
 app-welcome {
@@ -60,6 +64,19 @@ app-projects {
 	gap: 30px;
 	background-color: $Transparent;
 	// background-image: $ComponentBgColorUP;
+}
+
+app-personal-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+	padding: 0 $sidePadding_Desktop;
+
+	gap: 30px;
+	background-color: $Transparent;
 }
 
 app-contact {

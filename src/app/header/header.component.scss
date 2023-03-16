@@ -1,9 +1,9 @@
 @import "/src/shared/_variables.scss";
 
-p {
+h1 {
 	font-size: 2rem;
 	font-weight: bolder;
-	margin: 0;
+	margin-top: 2.5px;
 }
 
 nav {
@@ -18,11 +18,6 @@ nav {
 
 		gap: 3px;
 
-		p {
-			font-size: 1rem;
-			font-weight: normal;
-		}
-
 		span:nth-child(1),
 		span:nth-child(3) {
 			color: rgb(176, 176, 176);
@@ -33,7 +28,7 @@ nav {
 
 			&.active {
 				color: white;
-				text-decoration: underline 1px white;
+				text-decoration: underline 2px $Turquoise;
 				pointer-events: none;
 			}
 		}
