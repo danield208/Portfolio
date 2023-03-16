@@ -1,4 +1,62 @@
-div {
-  color: white;
-  background-color: rgba(130, 127, 127, 0.249);
+@import "/src/shared/_variables.scss";
+
+.content {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 120px;
+
+	div:nth-child(1) {
+		h1 {
+			margin: 0;
+			font-size: 3rem;
+			font-weight: bold;
+			color: #ffbf49;
+
+			br {
+				display: block;
+				content: "";
+				margin-top: 30px;
+			}
+		}
+
+		hr:nth-of-type(1),
+		hr:nth-of-type(2),
+		hr:nth-of-type(3) {
+			margin-top: 20px;
+			border: 1px solid;
+			border-color: #00f6d8;
+		}
+		hr:nth-of-type(2) {
+			width: 60%;
+		}
+		hr:nth-of-type(3) {
+			width: 40%;
+		}
+	}
+
+	div:nth-child(2) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			height: calc((100vw / 6) + (100vh / 6));
+			width: auto;
+		}
+
+		span {
+			margin-top: 30px;
+			font-size: 2rem;
+		}
+	}
+}
+
+app-profile {
+	// position: absolute;
+	// bottom: 20px;
+	margin-top: 80px;
+	display: flex;
+	flex-direction: column;
 }

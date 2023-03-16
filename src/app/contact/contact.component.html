@@ -1,1 +1,19 @@
-<p>contact works!</p>
+<h1>An meiner Person interessiert?</h1>
+<div class="socialMedia">
+    <h2>Erreiche mich Online,</h2>
+    <div>
+        <img src="" alt="instagram">
+        <img src="" alt="in">
+        <img src="" alt="twitter">
+        <img src="" alt="mail">
+    </div>
+</div>
+<div class="contactForm">
+    <h2>oder schicke mir direkt eine Nachricht:</h2>
+    <form (submit)="sendMail()" ngNativeValidate #contactform>
+        <input required name="name" placeholder="Name und Nachname" #nameField>
+        <input required name="email" placeholder="E-Mail Adresse" #mailField>
+        <textarea required name="message" placeholder="Nachricht..." #messageField></textarea>
+        <button #formButton>Senden</button>
+    </form>
+</div>

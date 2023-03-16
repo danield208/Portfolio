@@ -1,0 +1,26 @@
+{
+	"wetterapi": {
+		"Title": "WeatherAPI",
+		"ImgSrc": "./assets/images/wetterapi.png",
+		"InfoText": "In dieser kleinen WetterApp werden alle wichtigen Informationen zusammengefasst",
+		"Particularities": "Angular, API, Firebase",
+		"SiteLink": "#",
+		"GithubLink": "#"
+	},
+	"join": {
+		"Title": "Join",
+		"ImgSrc": "./assets/images/wetterapi.png",
+		"InfoText": "In dieser Buissunis App ...",
+		"Particularities": "Vanilla",
+		"SiteLink": "#",
+		"GithubLink": "#"
+	},
+	"slacclone": {
+		"Title": "Slac Clone",
+		"ImgSrc": "./assets/images/wetterapi.png",
+		"InfoText": "In diesem Slac Clone wird eine Chat App Simuliert",
+		"Particularities": "Angular, Firebase",
+		"SiteLink": "#",
+		"GithubLink": "#"
+	}
+}

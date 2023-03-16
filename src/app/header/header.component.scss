@@ -1,24 +1,41 @@
-header {
-  position: fixed;
-  top: 30px;
-  left: 130px;
-  right: 130px;
-  height: 40px;
-  padding: 0 28px;
+@import "/src/shared/_variables.scss";
 
-  background-color: rgba(255, 255, 255, 0.591);
+p {
+	font-size: 2rem;
+	font-weight: bolder;
+	margin: 0;
+}
 
-  border: 2px solid white;
-  border-radius: 12px;
-  color: white;
+nav {
+	width: fit-content;
+	display: flex;
+	gap: 30px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-  nav {
-    width: fit-content;
-    display: flex;
-    gap: 30px;
-  }
+		gap: 3px;
+
+		p {
+			font-size: 1rem;
+			font-weight: normal;
+		}
+
+		span:nth-child(1),
+		span:nth-child(3) {
+			color: rgb(176, 176, 176);
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&.active {
+				color: white;
+				text-decoration: underline 1px white;
+				pointer-events: none;
+			}
+		}
+	}
 }

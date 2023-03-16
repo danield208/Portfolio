@@ -1,0 +1,83 @@
+@import "/src/shared/_variables.scss";
+
+.page {
+	width: 100vw;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	// background-color: $Transparent;
+	background-image: $ComponentBgColorDOWN;
+}
+
+app-header {
+	position: fixed;
+	top: 30px;
+	left: $sidePadding_Desktop;
+	right: $sidePadding_Desktop;
+	height: 40px;
+	padding: 0 28px;
+
+	background-color: rgba(255, 255, 255, 0.104);
+
+	border: 1px solid white;
+	border-radius: 12px;
+	color: white;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	z-index: 9999;
+}
+
+app-welcome {
+	position: relative;
+	height: 100vh;
+
+	width: 100%;
+	padding: 0 $sidePadding_Desktop;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	background-color: $Transparent;
+	// background-image: $ComponentBgColorDOWN;
+}
+
+app-projects {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+	padding: 0 $sidePadding_Desktop;
+
+	gap: 30px;
+	background-color: $Transparent;
+	// background-image: $ComponentBgColorUP;
+}
+
+app-contact {
+	width: 100%;
+	padding: 0 $sidePadding_Desktop;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $Transparent;
+	// background-image: $ComponentBgColorDOWN;
+}
+
+app-footer {
+	width: 100%;
+	padding: 0 $sidePadding_Desktop;
+	height: 25vh;
+	background-color: $Green_dark;
+}

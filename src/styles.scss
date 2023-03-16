@@ -1,21 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+	font-family: BlackOpsOne;
+	src: url(./assets/fonts/BlackOpsOne-Regular.ttf);
+}
+
+@font-face {
+	font-family: SulphurPoint_Light;
+	src: url(./assets/fonts/SulphurPoint-Light.ttf);
+}
+
+@font-face {
+	font-family: SulphurPoint_Regular;
+	src: url(./assets/fonts/SulphurPoint-Regular.ttf);
+}
+
+@font-face {
+	font-family: SulphurPoint_Bold;
+	src: url(./assets/fonts/SulphurPoint-Bold.ttf);
+}
+
+body {
+	background-color: black;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: SulphurPoint_Regular, sans-serif;
+	font-size: 1rem;
+	color: white;
 }
 
-body {
-  background-color: #0f0f0f;
-  min-height: 100vh;
-  width: 100vw;
+// scrollbar
+::-webkit-scrollbar {
+	// width: 10px;
+	width: 0;
 }
 
-html,
-body {
-  height: 100%;
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	// border-radius: 5px;
+	// margin: 10vh 0;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+	// border-radius: 5px;
+
+	&:hover {
+		background: #555;
+	}
 }

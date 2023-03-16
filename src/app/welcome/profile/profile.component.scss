@@ -1,0 +1,23 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100px;
+    margin-right: 30px;
+  }
+
+  span {
+    font-size: 18px;
+  }
+}
+
+app-skills {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+}

@@ -1,1 +1,17 @@
-<p>projects works!</p>
+<h1>Meine Projekte</h1>
+
+<main *ngFor="let project of projects; let Index = index">
+    <h1>{{ Index + 1 }}</h1>
+    <content>
+        <h2>{{ project.Title }}</h2>
+        <img src="{{ project.ImgSrc }}" alt="projectImg">
+        <div class="projectInfo">
+            <span>{{ project.InfoText }}</span>
+            <span>{{ project.Particularities }}</span>
+            <div>
+                <a href="{{ project.SiteLink }}">Visit Site</a>
+                <a href="{{ project.GithubLink }}">Check Github</a>
+            </div>
+        </div>
+    </content>
+</main>

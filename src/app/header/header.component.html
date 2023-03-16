@@ -1,9 +1,11 @@
-<header>
-    <img src="#" alt="Logo">
-    <nav>
-        <span>About Me</span>
-        <span>Skills</span>
-        <span>Projects</span>
-        <span>Contact Me</span>
-    </nav>
-</header>
+<p>DD</p>
+<nav>
+    <span translate class="active">Start</span>
+    <span>Projects</span>
+    <span>Contact Me</span>
+    <div>
+        <span class="active" (click)="changeLang($event)" value="en">EN</span>
+        <p>|</p>
+        <span (click)="changeLang($event)" value="de">DE</span>
+    </div>
+</nav>

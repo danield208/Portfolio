@@ -1,0 +1,64 @@
+@import "/src/shared/_variables.scss";
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $Yellow;
+}
+
+.socialMedia {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+
+  div {
+    margin-top: 24px;
+    display: flex;
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 48px;
+  width: 80%;
+
+  form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+
+    input {
+      background-color: unset;
+      border: none;
+      border-bottom: 2px solid $Turquoise;
+      padding-left: 8px;
+    }
+
+    textarea {
+      height: 150px;
+      background-color: unset;
+      border: none;
+      border: 2px solid $Turquoise;
+      border-radius: 8px;
+      padding: 5px 8px;
+    }
+
+    button {
+      width: fit-content;
+      background-color: $Yellow;
+      color: $Black;
+      padding: 8px 12px;
+      border: unset;
+      border-radius: 8px;
+      align-self: flex-end;
+    }
+  }
+}
