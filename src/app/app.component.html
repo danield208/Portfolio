@@ -1,4 +1,4 @@
-<app-header *ngIf="header" [ngClass]="headerClass"></app-header>
+<app-header (scrollByFunction)="setScrollByFunctionValue($event)" *ngIf="header" [ngClass]="headerClass"></app-header>
 <div class="page">
     <app-welcome></app-welcome>
     <app-projects></app-projects>

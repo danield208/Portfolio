@@ -11,6 +11,8 @@ export class AppComponent {
 	header: boolean = true;
 	lastScroll: Number = 0;
 	headerClass: string = "showState";
+	scrollByFunction: boolean = false;
+	firstInit: number = 0;
 
 	constructor(public translate: TranslateService) {
 		this.initHeaderAnimation();
@@ -18,10 +20,13 @@ export class AppComponent {
 
 	initHeaderAnimation() {
 		window.addEventListener("scroll", () => {
-			let currentScroll = window.scrollY;
-			if (this.isHeaderShwon(currentScroll)) this.hideHeader();
-			else if (this.isHeaderHidden(currentScroll)) this.showHeader();
-			this.lastScroll = window.pageYOffset;
+			this.firstInit++;
+			if (!this.scrollByFunction && this.firstInit > 1) {
+				let currentScroll = window.scrollY;
+				if (this.isHeaderShwon(currentScroll)) this.hideHeader();
+				else if (this.isHeaderHidden(currentScroll)) this.showHeader();
+				this.lastScroll = window.pageYOffset;
+			}
 		});
 	}
 
@@ -45,5 +50,9 @@ export class AppComponent {
 		setTimeout(() => {
 			this.headerClass = "showState";
 		}, 225);
+	}
+
+	setScrollByFunctionValue(status: boolean) {
+		this.scrollByFunction = status;
 	}
 }
