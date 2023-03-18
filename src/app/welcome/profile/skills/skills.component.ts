@@ -8,22 +8,43 @@ import { Component } from "@angular/core";
 })
 export class SkillsComponent {
 	infobox: boolean = false;
+	infoboxText: boolean = false;
+	openInfoboxRunning: boolean = false;
+	closeInfoboxRunning: boolean = false;
 	classList: string = "";
 
 	constructor(public translate: TranslateService) {}
 
 	openInfobox() {
-		this.infobox = true;
-		setTimeout(() => {
-			this.classList = "active";
-		}, 225);
+		if (!this.openInfoboxRunning && !this.infobox) {
+			this.openInfoboxRunning = true;
+			this.infobox = true;
+			setTimeout(() => {
+				this.infoboxText = true;
+				this.classList = "active";
+				this.openInfoboxRunning = false;
+			}, 225);
+		}
 	}
 
 	closeInfobox() {
-		this.classList = "de_active";
+		if (!this.closeInfoboxRunning && this.infobox) {
+			setTimeout(() => {
+				this.runCloseCode();
+			}, 225);
+		}
+	}
+
+	runCloseCode() {
+		this.closeInfoboxRunning = true;
 		setTimeout(() => {
-			this.infobox = false;
-			this.classList = "";
+			this.infoboxText = false;
+			this.classList = "de_active";
+			setTimeout(() => {
+				this.infobox = false;
+				this.classList = "";
+				this.closeInfoboxRunning = false;
+			}, 225);
 		}, 225);
 	}
 }

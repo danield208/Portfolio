@@ -3,8 +3,8 @@
     <span class="active">Start</span>
     <span [innerHTML]="'header.projects' | translate">###</span>
     <span [innerHTML]="'header.contact' | translate">###</span>
-    <div>
-        <span class="active" (click)="changeLang($event)" value="de">DE</span>
+    <div #languagePicker>
+        <span (click)="changeLang($event)" value="de">DE</span>
         <p>|</p>
         <span (click)="changeLang($event)" value="en">EN</span>
     </div>

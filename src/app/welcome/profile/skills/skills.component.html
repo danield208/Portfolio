@@ -1,6 +1,8 @@
 <content (mouseenter)="openInfobox()" (mouseleave)="closeInfobox()">
     <div *ngIf="infobox" class="infobox" [ngClass]="classList">
-
+        <span *ngIf="infoboxText" [innerHTML]=" 'skills' | translate ">
+            ###
+        </span>
     </div>
 
     <div class="skillbox">

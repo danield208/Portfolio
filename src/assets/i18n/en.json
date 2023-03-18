@@ -22,7 +22,8 @@
 		"contact": "Contact Me"
 	},
 
-	"profile": "Hallo, my name is Daniel Dörbaum. <br> Here you can find my projects, skills, personal infos and how to get into contact with me.",
+	"profile": "Hello, my name is Daniel Dörbaum. <br> Here you can find my projects, skills, personal infos and how to get into contact with me.",
+	"skills": "Developer Akademie: <br> HTML, CSS, JS, TS, Angular, API, Git, Scrum <br> <br> Udemy courses: <br> Angular",
 
 	"projects": {
 		"title": "My Projects",

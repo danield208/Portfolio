@@ -23,6 +23,7 @@
 	},
 
 	"profile": "Hallo, mein Name ist Daniel Dörbaum. <br> Hier findest du meine Projekte, Skills, Infos zu meiner Person und wie du mich erreichen kannst.",
+	"skills": "Developer Akademie: <br> HTML, CSS, JS, TS, Angular, API, Git, Scrum <br> <br> Udemy Kurse: <br> Angular",
 
 	"projects": {
 		"title": "Meine Projecte",

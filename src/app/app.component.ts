@@ -10,25 +10,40 @@ export class AppComponent {
 	title = "Portfolio";
 	header: boolean = true;
 	lastScroll: Number = 0;
-	headerClass: string = "active";
+	headerClass: string = "showState";
 
 	constructor(public translate: TranslateService) {
-		// this language will be used as a fallback when a translation isn't found in the current language
-		// translate.setDefaultLang('en');
-		// the lang to use, if the lang isn't available, it will use the current loader to get them
-		// translate.use('en');
+		this.initHeaderAnimation();
+	}
 
+	initHeaderAnimation() {
 		window.addEventListener("scroll", () => {
 			let currentScroll = window.scrollY;
-			// console.log(currentScroll);
-
-			if (currentScroll > this.lastScroll && currentScroll > 180) {
-				console.log("hide header");
-			} else if (currentScroll < this.lastScroll) {
-				if (currentScroll > 180) console.log("show header");
-			}
-
+			if (this.isHeaderShwon(currentScroll)) this.hideHeader();
+			else if (this.isHeaderHidden(currentScroll)) this.showHeader();
 			this.lastScroll = window.pageYOffset;
 		});
+	}
+
+	isHeaderShwon(currentScroll: Number) {
+		return currentScroll > this.lastScroll && currentScroll > 180 && this.headerClass == "showState";
+	}
+
+	hideHeader() {
+		this.headerClass = "animateUp";
+		setTimeout(() => {
+			this.headerClass = "hideState";
+		}, 225);
+	}
+
+	isHeaderHidden(currentScroll: Number) {
+		return currentScroll < this.lastScroll && currentScroll > 180 && this.headerClass == "hideState";
+	}
+
+	showHeader() {
+		this.headerClass = "animateDown";
+		setTimeout(() => {
+			this.headerClass = "showState";
+		}, 225);
 	}
 }

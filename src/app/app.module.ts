@@ -15,9 +15,8 @@ import { ProfileComponent } from "./welcome/profile/profile.component";
 import { ContactComponent } from "./contact/contact.component";
 import { FooterComponent } from "./footer/footer.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { UsersettingsComponent } from "./usersettings.component";
 import { TranslateLoader } from "@ngx-translate/core";
-import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { PersonalInfoComponent } from "./personal-info/personal-info.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -34,8 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		ProfileComponent,
 		ContactComponent,
 		FooterComponent,
-		UsersettingsComponent,
-  PersonalInfoComponent,
+		PersonalInfoComponent,
 	],
 	imports: [
 		BrowserModule,

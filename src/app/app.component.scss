@@ -12,13 +12,13 @@
 
 app-header {
 	position: fixed;
-	top: 30px;
+	top: -40px;
 	left: $sidePadding_Desktop;
 	right: $sidePadding_Desktop;
 	height: 40px;
 	padding: 0 28px;
 
-	background-color: rgba(255, 255, 255, 0.104);
+	background-color: rgba(68, 68, 68, 0.905);
 
 	border: 1px solid white;
 	border-radius: 12px;
@@ -30,8 +30,34 @@ app-header {
 
 	z-index: 9999;
 
-	&.active {
-		background-color: black;
+	&.animateDown {
+		transform: translate3d(0, 0, 0);
+		animation: showHeader 235ms ease-in-out;
+	}
+
+	&.animateUp {
+		transform: translate3d(0, +160%, 0);
+		animation: hideHeader 235ms ease-in-out;
+	}
+
+	&.showState {
+		transform: translate3d(0, +160%, 0);
+	}
+
+	&.hideState {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes showHeader {
+	100% {
+		transform: translate3d(0, +160%, 0);
+	}
+}
+
+@keyframes hideHeader {
+	100% {
+		transform: translate3d(0, 0, 0);
 	}
 }
 
