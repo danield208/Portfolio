@@ -135,12 +135,30 @@ export class HeaderComponent implements AfterViewInit {
 
 	browserJump(position: string) {
 		this.scrollByFunction.emit(true);
-		if (position == "start") window.scrollTo(0, 0);
-		if (position == "projects") window.scrollTo(0, window.innerHeight);
-		if (position == "personal") window.scrollTo(0, window.innerHeight * 2);
-		if (position == "contact") window.scrollTo(0, window.innerHeight * 3);
+		switch (position) {
+			case "start":
+				document
+					.querySelector("app-welcome")
+					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				break;
+			case "projects":
+				document
+					.querySelector("app-projects")
+					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				break;
+			case "personal":
+				document
+					.querySelector("app-personal-info")
+					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				break;
+			case "contact":
+				document
+					.querySelector("app-contact")
+					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				break;
+		}
 		setTimeout(() => {
 			this.scrollByFunction.emit(false);
-		}, 300);
+		}, 800);
 	}
 }
