@@ -2,10 +2,7 @@
 <div class="socialMedia">
     <h2 [innerHTML]="'contact.text.contact' | translate">###</h2>
     <div>
-        <img src="" alt="instagram">
-        <img src="" alt="in">
-        <img src="" alt="twitter">
-        <img src="" alt="mail">
+        <img *ngFor="let img of contactImg" [src]="img.localSrc">
     </div>
 </div>
 <div class="contactForm">

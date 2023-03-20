@@ -34,5 +34,15 @@
 		"wetterAPI_info": "Eine kleine WebApp, für das mobile Endgerät optimiert. Hier wird mit Hilfe einer Wetter API Informationen zum Wetter angezeigt.",
 		"join_info": "Join ist eine Business WebApp, in welcher Tasks verwaltet werden können.",
 		"slacClone_info": "Slac Clone ist, wie der Name sagt, eine Kopie der bekannten Chatplattform 'Slack'."
+	},
+
+	"infobox": "Dieses Projekt ist noch in arbeit. Sobald dieses fertig gestellt sein sollte, wird der Link zur verfügung steht.",
+
+	"personalInfo": {
+		"translate2015": "Realschulabschluss + Ausbildungsbeginn: Technischer Modellbauer im Lehrenbau",
+		"translate2019": "Abschluss der genannten Ausbildung + Tätigkeitsbeginn als Facharbeiter",
+		"translate2021": "Tätigkeitsbeginn als Anlagenführer",
+		"translate2022": "Tätigkeitsbeginn in der Qualitätssicherung + Beginn der Umschulung zum Frontend Web-Developer",
+		"translate2023": "Abschluss der genannten Umschulung"
 	}
 }

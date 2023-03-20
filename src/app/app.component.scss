@@ -1,12 +1,11 @@
 @import "/src/shared/_variables.scss";
 
 .page {
-	width: 100vw;
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
 	overflow-y: auto;
-	// background-color: $Transparent;
 	background-image: $ComponentBgColorDOWN;
 }
 
@@ -74,8 +73,6 @@ app-welcome {
 	align-items: center;
 
 	color: white;
-	background-color: $Transparent;
-	// background-image: $ComponentBgColorDOWN;
 }
 
 app-projects {
@@ -88,21 +85,16 @@ app-projects {
 	padding: 0 $sidePadding_Desktop;
 
 	gap: 30px;
-	background-color: $Transparent;
-	// background-image: $ComponentBgColorUP;
 }
 
 app-personal-info {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
 	height: 100vh;
 	width: 100%;
 	padding: 0 $sidePadding_Desktop;
-
-	gap: 30px;
-	background-color: $Transparent;
 }
 
 app-contact {
@@ -114,8 +106,6 @@ app-contact {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: $Transparent;
-	// background-image: $ComponentBgColorDOWN;
 }
 
 app-footer {

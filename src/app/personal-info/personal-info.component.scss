@@ -1,0 +1,41 @@
+@import "/src/shared/_variables.scss";
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		font-size: 1.2rem;
+	}
+}
+
+.year {
+	width: 48px;
+}
+
+.dot {
+	height: 16px;
+	width: 16px;
+	border-radius: 100%;
+	margin-right: 16px;
+	background-color: $Yellow;
+}
+
+.line {
+	width: 2px;
+	height: 40px;
+	border-radius: 1px;
+	background-color: $Yellow;
+	margin: 0 7px;
+	position: relative;
+	left: 48px;
+}
+
+p {
+	color: $Yellow;
+	font-weight: bold;
+	position: relative;
+	top: -5px;
+	left: 48px;
+}

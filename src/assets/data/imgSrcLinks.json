@@ -1,0 +1,17 @@
+{
+	"instagram": {
+		"localSrc": "./assets/images/icons/contactIcons/instagram.png",
+		"webSrc": "//www.flaticon.com/de/kostenlose-icons/instagram",
+		"text": "Icons erstellt von Pixel perfect - Flaticon"
+	},
+	"linkedIn": {
+		"localSrc": "./assets/images/icons/contactIcons/linkedin.png",
+		"webSrc": "//www.flaticon.com/de/kostenlose-icons/linkedin",
+		"text": "Icons erstellt von Pixel perfect - Flaticon"
+	},
+	"Mail": {
+		"localSrc": "./assets/images/icons/contactIcons/mail.png",
+		"webSrc": "//www.flaticon.com/de/kostenlose-icons/email",
+		"text": "Icons erstellt von Pixel perfect - Flaticon"
+	}
+}

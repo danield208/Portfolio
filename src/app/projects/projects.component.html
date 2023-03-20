@@ -11,9 +11,13 @@
                 <span>{{ project.Particularities }}</span>
             </div>
             <div>
-                <a href="{{ project.SiteLink }}" [innerHTML]="'projects.' + 'buttons.' + 'visit' | translate">###</a>
-                <a href="{{ project.GithubLink }}">Github</a>
+                <!-- href="{{ project.SiteLink }}" -->
+                <a (click)="openInfo()" [innerHTML]="'projects.' + 'buttons.' + 'visit' | translate">###</a>
+                <a (click)="openInfo()">Github</a>
             </div>
         </div>
     </content>
 </main>
+
+<div *ngIf="infoBox" class="shadow {{  infoBoxClass }}"></div>
+<div *ngIf="infoBox" class="infobox {{  infoBoxClass }}">{{ 'infobox' | translate }}</div>

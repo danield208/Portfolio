@@ -1,1 +1,9 @@
-<p>Hier wird noch gearbeitet: Darstellung meines Lebenslaufes.</p>
+<content *ngFor="let date of personalData; index as index">
+    <div class="content">
+        <span class="year">{{ date.year }}</span>
+        <div class="dot"></div>
+        <span [innerHTML]="'personalInfo.' + date.description | translate"></span>
+    </div>
+    <div class="line"></div>
+    <p *ngIf="arrayLenght == index + 1">&#8897;</p>
+</content>

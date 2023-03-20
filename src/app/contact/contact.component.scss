@@ -18,6 +18,22 @@ h2 {
 	div {
 		margin-top: 24px;
 		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+
+		img {
+			padding: 8px;
+			height: 60px;
+			background-color: rgba(192, 192, 192, 0.687);
+			border-radius: 10px;
+			cursor: pointer;
+
+			transition: background-color 225ms ease-in-out;
+			&:hover {
+				background-color: rgb(192, 192, 192);
+			}
+		}
 	}
 }
 

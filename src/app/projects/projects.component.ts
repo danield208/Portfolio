@@ -9,6 +9,9 @@ import { Component } from "@angular/core";
 export class ProjectsComponent {
 	projects: any[] = [];
 
+	infoBox: boolean = false;
+	infoBoxClass: string = "";
+
 	constructor(public translate: TranslateService) {
 		this.fetchProjectsJson();
 	}
@@ -21,5 +24,20 @@ export class ProjectsComponent {
 					this.projects.push(key[1]);
 				});
 			});
+	}
+
+	openInfo() {
+		console.log("runing");
+		this.infoBox = true;
+		this.infoBoxClass = "open";
+		setTimeout(() => {
+			this.infoBoxClass = "active";
+		}, 225);
+		setTimeout(() => {
+			this.infoBoxClass = "active close";
+			setTimeout(() => {
+				this.infoBox = false;
+			}, 225);
+		}, 2500);
 	}
 }

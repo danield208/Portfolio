@@ -16,6 +16,10 @@ export class HeaderComponent implements AfterViewInit {
 	currentPosition!: string;
 	pageOffset: number = 300;
 
+	timeouts: Array<any> = [];
+
+	components: Array<string> = ["start", "projects", "personal", "contact"];
+
 	constructor(public translate: TranslateService) {
 		translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			localStorage.setItem("page_language", event.lang);
@@ -48,7 +52,6 @@ export class HeaderComponent implements AfterViewInit {
 			}
 		});
 		this.addEventListeners();
-		console.log(this.nav_DOM_SpanChilds);
 	}
 
 	ifLocalStorage_init() {
@@ -64,44 +67,27 @@ export class HeaderComponent implements AfterViewInit {
 
 	addEventListeners() {
 		window.addEventListener("scroll", () => {
-			if (this.checkComponentCollision("start")) {
-				this.currentPosition = "start";
-			}
-			if (this.checkComponentCollision("projects")) {
-				this.currentPosition = "projects";
-			}
-			if (this.checkComponentCollision("personal")) {
-				this.currentPosition = "personal";
-			}
-			if (this.checkComponentCollision("contact")) {
-				this.currentPosition = "contact";
-			}
-			this.setNavStile();
+			this.components.forEach((component: string) => {
+				if (this.checkComponentCollision(component)) {
+					this.currentPosition = component;
+					this.setNavStile();
+				}
+			});
 		});
 	}
 
 	checkComponentCollision(component: string): any {
-		switch (component) {
-			case "start":
-				return (
-					(window.scrollY >= 0 || window.scrollY >= this.pageOffset) &&
-					window.scrollY <= window.innerHeight - this.pageOffset
-				);
-			case "projects":
-				return (
-					window.scrollY >= window.innerHeight - this.pageOffset &&
-					window.scrollY <= window.innerHeight * 2 + this.pageOffset
-				);
-			case "personal":
-				return (
-					window.scrollY >= window.innerHeight * 2 - this.pageOffset &&
-					window.scrollY <= window.innerHeight * 3 + this.pageOffset
-				);
-			case "contact":
-				return (
-					window.scrollY >= window.innerHeight * 3 - this.pageOffset &&
-					window.scrollY <= window.innerHeight * 4 + this.pageOffset
-				);
+		let headerIfStatements: Array<Boolean> = [
+			(window.scrollY >= 0 || window.scrollY >= this.pageOffset) &&
+				window.scrollY <= window.innerHeight - this.pageOffset,
+			window.scrollY >= window.innerHeight - this.pageOffset &&
+				window.scrollY <= window.innerHeight * 2 - this.pageOffset,
+			window.scrollY >= window.innerHeight * 2 - this.pageOffset &&
+				window.scrollY <= window.innerHeight * 3 - this.pageOffset,
+			window.scrollY >= window.innerHeight * 3 - this.pageOffset && window.scrollY <= window.innerHeight * 4,
+		];
+		for (let index = 0; index < this.components.length; index++) {
+			if (headerIfStatements[index] && this.components[index] == component) return true;
 		}
 	}
 
@@ -137,28 +123,39 @@ export class HeaderComponent implements AfterViewInit {
 		this.scrollByFunction.emit(true);
 		switch (position) {
 			case "start":
+				this.scrollByFuntionStatus();
 				document
 					.querySelector("app-welcome")
 					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 				break;
 			case "projects":
+				this.scrollByFuntionStatus();
 				document
 					.querySelector("app-projects")
 					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 				break;
 			case "personal":
+				this.scrollByFuntionStatus();
 				document
 					.querySelector("app-personal-info")
 					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 				break;
 			case "contact":
+				this.scrollByFuntionStatus();
 				document
 					.querySelector("app-contact")
 					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 				break;
 		}
-		setTimeout(() => {
-			this.scrollByFunction.emit(false);
-		}, 800);
+	}
+
+	scrollByFuntionStatus() {
+		window.clearTimeout(this.timeouts[0]);
+		this.timeouts.length = 0;
+		this.timeouts.push(
+			setTimeout(() => {
+				this.scrollByFunction.emit(false);
+			}, 800)
+		);
 	}
 }

@@ -13,7 +13,22 @@ export class ContactComponent {
 	@ViewChild("messageField") messageField!: any;
 	@ViewChild("formButton") formButton!: any;
 
-	constructor(public translate: TranslateService) {}
+	contactImg: Array<any> = [];
+
+	constructor(public translate: TranslateService) {
+		this.getImages();
+	}
+
+	async getImages() {
+		await fetch("assets/data/imgSrcLinks.json")
+			.then((response) => response.json())
+			.then((json) => {
+				Object.entries(json).forEach((key) => {
+					this.contactImg.push(key[1]);
+				});
+			});
+		console.log(this.contactImg);
+	}
 
 	async sendMail() {
 		console.log(this.contactform);
