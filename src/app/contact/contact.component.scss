@@ -1,5 +1,15 @@
 @import "/src/shared/_variables.scss";
 
+:host {
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 h1 {
 	font-size: 3rem;
 }
@@ -13,7 +23,9 @@ h2 {
 .socialMedia {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	margin-top: 48px;
+	width: 100%;
 
 	div {
 		margin-top: 24px;
@@ -41,8 +53,9 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	align-items: center;
 	margin-top: 48px;
-	width: 80%;
+	width: 70%;
 
 	form {
 		margin-top: 24px;
@@ -77,5 +90,11 @@ h2 {
 			border-radius: 8px;
 			align-self: flex-end;
 		}
+	}
+}
+
+@media (max-width: $maxWidth_Mobile) {
+	.contactForm {
+		width: 100%;
 	}
 }

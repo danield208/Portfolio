@@ -23,7 +23,7 @@
 		"contact": "Contact Me"
 	},
 
-	"profile": "Hello, my name is Daniel Dörbaum. <br> Here you can find my projects, skills, personal infos and how to get into contact with me.",
+	"profile": "Willkommen, mein Name ist Daniel Dörbaum, 24 Jahre alt und einem derzeitigen Wohnsitz in Hann. Münden. <br> Vorzufinden sind hier meine Skills, Projekte und weitere Informationen zu meiner Person.",
 	"skills": "Developer Akademie: <br> HTML, CSS, JS, TS, Angular, API, Git, Scrum <br> <br> Udemy courses: <br> Angular",
 
 	"projects": {
@@ -39,10 +39,7 @@
 	"infobox": "This project is work in progress. If the project is finished, the link is going to work again.",
 
 	"personalInfo": {
-		"translate2015": "Realschulabschluss + Ausbildungsbeginn: Technischer Modellbauer im Lehrenbau",
-		"translate2019": "Abschluss der genannten Ausbildung + Tätigkeitsbeginn als Facharbeiter",
-		"translate2021": "Tätigkeitsbeginn als Anlagenführer",
-		"translate2022": "Tätigkeitsbeginn in der Qualitätssicherung + Beginn der Umschulung zum Frontend Web-Developer",
+		"translate2022": "Beginn der Umschulung zum Frontend Web-Developer bei der Developer Akademie",
 		"translate2023": "Abschluss der genannten Umschulung"
 	}
 }

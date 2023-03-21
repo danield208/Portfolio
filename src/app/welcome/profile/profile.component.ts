@@ -1,5 +1,5 @@
 import { TranslateService } from "@ngx-translate/core";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
 	selector: "app-profile",
@@ -7,5 +7,6 @@ import { Component } from "@angular/core";
 	styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent {
+	@Input() responsive_hide!: boolean;
 	constructor(public translate: TranslateService) {}
 }

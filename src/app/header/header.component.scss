@@ -1,5 +1,56 @@
 @import "/src/shared/_variables.scss";
 
+:host {
+	position: fixed;
+	top: -80px;
+	left: $sidePadding_Desktop;
+	right: $sidePadding_Desktop;
+	height: 60px;
+	padding: 0 28px;
+
+	background-color: rgba(68, 68, 68, 0.905);
+
+	border: 1px solid white;
+	border-radius: 12px;
+	color: white;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	z-index: 9999;
+
+	&.animateDown {
+		transform: translate3d(0, 0, 0);
+		animation: showHeader 235ms ease-in-out;
+	}
+
+	&.animateUp {
+		transform: translate3d(0, +180%, 0);
+		animation: hideHeader 235ms ease-in-out;
+	}
+
+	&.showState {
+		transform: translate3d(0, +180%, 0);
+	}
+
+	&.hideState {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes showHeader {
+	100% {
+		transform: translate3d(0, +180%, 0);
+	}
+}
+
+@keyframes hideHeader {
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
 h1 {
 	font-size: 2rem;
 	font-weight: bolder;
@@ -38,5 +89,12 @@ nav {
 				pointer-events: none;
 			}
 		}
+	}
+}
+
+@media (max-width: $maxWidth_Mobile) {
+	:host {
+		left: $sidePadding_Mobile;
+		right: $sidePadding_Mobile;
 	}
 }

@@ -1,3 +1,11 @@
+@import "/src/shared/_variables.scss";
+
+:host {
+	margin-top: 80px;
+	display: flex;
+	flex-direction: column;
+}
+
 div {
 	display: flex;
 	justify-content: center;
@@ -18,4 +26,10 @@ app-skills {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+@media (max-width: $maxWidth_Mobile) {
+	:host {
+		margin-top: 10px;
+	}
 }

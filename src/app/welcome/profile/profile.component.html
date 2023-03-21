@@ -1,7 +1,6 @@
 <div>
-    <img src="./assets/images/mann.png" alt="profilbild">
+    <img *ngIf="!responsive_hide" src="./assets/images/mann.png" alt="profilbild">
     <span [innerHTML]="'profile' | translate">###</span>
 </div>
 
-<!-- Component -->
 <app-skills></app-skills>

@@ -8,12 +8,15 @@ import { Component } from "@angular/core";
 })
 export class ProjectsComponent {
 	projects: any[] = [];
-
+	responsive_hide: boolean;
 	infoBox: boolean = false;
 	infoBoxClass: string = "";
 
 	constructor(public translate: TranslateService) {
 		this.fetchProjectsJson();
+		if (window.innerWidth < 529) this.responsive_hide = true;
+		else this.responsive_hide = false;
+		this.initEventListener();
 	}
 
 	async fetchProjectsJson() {
@@ -24,6 +27,13 @@ export class ProjectsComponent {
 					this.projects.push(key[1]);
 				});
 			});
+	}
+
+	initEventListener() {
+		window.addEventListener("resize", () => {
+			if (window.innerWidth < 529) this.responsive_hide = true;
+			else this.responsive_hide = false;
+		});
 	}
 
 	openInfo() {

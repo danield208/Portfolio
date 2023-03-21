@@ -1,20 +1,13 @@
 <h1 [innerHTML]="'projects.title' | translate">###</h1>
 
 <main *ngFor="let project of projects; let Index = index">
-    <h1>{{ Index + 1 }}</h1>
+    <h1 *ngIf="!responsive_hide">{{ Index + 1 }}</h1>
     <content>
         <h2>{{ project.Title }}</h2>
         <img src="{{ project.ImgSrc }}" alt="projectImg">
         <div class="projectInfo">
-            <div>
-                <span>{{ "projects." + project.InfoText | translate }}</span>
-                <span>{{ project.Particularities }}</span>
-            </div>
-            <div>
-                <!-- href="{{ project.SiteLink }}" -->
-                <a (click)="openInfo()" [innerHTML]="'projects.' + 'buttons.' + 'visit' | translate">###</a>
-                <a (click)="openInfo()">Github</a>
-            </div>
+            <span>{{ "projects." + project.InfoText | translate }}</span>
+            <span>{{ project.Particularities }}</span>
         </div>
     </content>
 </main>

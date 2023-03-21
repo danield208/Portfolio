@@ -1,5 +1,19 @@
 @import "/src/shared/_variables.scss";
 
+:host {
+	position: relative;
+	min-height: 100vh;
+
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+}
+
 .content {
 	width: 100%;
 	display: flex;
@@ -40,23 +54,39 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
 
-		img {
-			height: calc((100vw / 8) + (100vh / 8));
-			width: auto;
-		}
+	img {
+		height: calc((100vw / 8) + (100vh / 8));
+		width: auto;
+	}
 
-		span {
-			margin-top: 30px;
-			font-size: 2rem;
-		}
+	span {
+		margin-top: 30px;
+		font-size: 2rem;
 	}
 }
 
-app-profile {
-	// position: absolute;
-	// bottom: 20px;
-	margin-top: 80px;
-	display: flex;
-	flex-direction: column;
+@media (max-width: $maxWidth_Mobile) {
+	.content {
+		flex-direction: column;
+		margin-top: 70px;
+
+		div:nth-child(1) {
+			width: 100%;
+			h1 {
+				font-size: 2.5rem;
+			}
+		}
+
+		img {
+			margin-top: 30px;
+			width: 170px;
+			height: auto;
+		}
+
+		span {
+			font-size: 1.3rem;
+		}
+	}
 }

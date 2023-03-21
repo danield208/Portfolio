@@ -1,0 +1,15 @@
+@import "/src/shared/_variables.scss";
+
+:host {
+	// box-sizing: border-box;
+	width: 100%;
+	height: 25vh;
+	padding: 0 $sidePadding_Desktop;
+	background-color: $Green_dark;
+}
+
+@media (max-width: $maxWidth_Mobile) {
+	:host {
+		padding: 0 $sidePadding_Mobile;
+	}
+}
