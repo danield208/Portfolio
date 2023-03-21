@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -6,16 +6,41 @@ import { TranslateService } from "@ngx-translate/core";
 	templateUrl: "./app.component.html",
 	styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 	title = "Portfolio";
 	header: boolean = true;
-	lastScroll: Number = 0;
+	lastScroll: number = 0;
 	headerClass: string = "showState";
 	scrollByFunction: boolean = false;
 	firstInit: number = 0;
+	@ViewChild("appComponents") app_project!: ElementRef;
+	root_DOM_Components_PositionY: Array<number> = [];
+	timeOuts: Array<any> = [];
 
 	constructor(public translate: TranslateService) {
 		this.initHeaderAnimation();
+	}
+
+	ngAfterViewInit(): void {
+		this.setRootChilds();
+		document.addEventListener("resize", () => {
+			this.timeOuts.forEach((timout: number) => {
+				clearTimeout(timout);
+			});
+			this.timeOuts.push(
+				setTimeout(() => {
+					this.setRootChilds();
+				}, 400)
+			);
+		});
+	}
+
+	setRootChilds() {
+		let components: Array<HTMLAllCollection> = Array.from(this.app_project.nativeElement.children);
+		components.forEach((child: any) => {
+			this.root_DOM_Components_PositionY.push(child.getBoundingClientRect().y + window.scrollY);
+		});
+		console.log(this.root_DOM_Components_PositionY);
 	}
 
 	initHeaderAnimation() {

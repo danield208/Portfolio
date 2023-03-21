@@ -1,5 +1,5 @@
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
-import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter } from "@angular/core";
+import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter, Input } from "@angular/core";
 
 @Component({
 	selector: "app-header",
@@ -12,12 +12,11 @@ export class HeaderComponent implements AfterViewInit {
 	div_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	nav_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	languages: Array<string> = ["en", "de"];
+	@Input() componentPositions!: Array<number>;
 	@Output() scrollByFunction = new EventEmitter<boolean>();
 	currentPosition!: string;
 	pageOffset: number = 300;
-
 	timeouts: Array<any> = [];
-
 	components: Array<string> = ["start", "projects", "personal", "contact"];
 
 	constructor(public translate: TranslateService) {
@@ -37,6 +36,7 @@ export class HeaderComponent implements AfterViewInit {
 		this.setLanguagePickerChilds();
 		this.setNavChilds();
 		this.ifLocalStorage_init();
+		this.addEventListeners();
 	}
 
 	setLanguagePickerChilds() {
@@ -51,7 +51,6 @@ export class HeaderComponent implements AfterViewInit {
 				this.nav_DOM_SpanChilds.push(child);
 			}
 		});
-		this.addEventListeners();
 	}
 
 	ifLocalStorage_init() {
@@ -80,11 +79,11 @@ export class HeaderComponent implements AfterViewInit {
 		let headerIfStatements: Array<Boolean> = [
 			(window.scrollY >= 0 || window.scrollY >= this.pageOffset) &&
 				window.scrollY <= window.innerHeight - this.pageOffset,
-			window.scrollY >= window.innerHeight - this.pageOffset &&
-				window.scrollY <= window.innerHeight * 2 - this.pageOffset,
-			window.scrollY >= window.innerHeight * 2 - this.pageOffset &&
-				window.scrollY <= window.innerHeight * 3 - this.pageOffset,
-			window.scrollY >= window.innerHeight * 3 - this.pageOffset && window.scrollY <= window.innerHeight * 4,
+			window.scrollY >= this.componentPositions[1] - this.pageOffset &&
+				window.scrollY <= this.componentPositions[2] - this.pageOffset,
+			window.scrollY >= this.componentPositions[2] - this.pageOffset &&
+				window.scrollY <= this.componentPositions[3] - this.pageOffset,
+			window.scrollY >= this.componentPositions[3] - this.pageOffset && window.scrollY <= window.innerHeight * 4,
 		];
 		for (let index = 0; index < this.components.length; index++) {
 			if (headerIfStatements[index] && this.components[index] == component) return true;

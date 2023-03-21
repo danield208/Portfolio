@@ -7,9 +7,21 @@
 	justify-content: center;
 	min-height: 100vh;
 	width: 100%;
+
+	gap: 30px;
 }
 
-.content {
+h1 {
+	width: 100%;
+	text-align: center;
+	font-size: 3rem;
+}
+
+.instructions {
+	font-size: 1.3rem;
+}
+
+content {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,16 +31,21 @@
 	}
 }
 
-.year {
-	width: 48px;
-}
+.year_dot {
+	display: flex;
+	align-items: center;
 
-.dot {
-	height: 16px;
-	width: 16px;
-	border-radius: 100%;
-	margin-right: 16px;
-	background-color: $Yellow;
+	span {
+		width: 48px;
+	}
+
+	div {
+		height: 16px;
+		width: 16px;
+		border-radius: 100%;
+		margin-right: 16px;
+		background-color: $Yellow;
+	}
 }
 
 .line {
@@ -50,4 +67,8 @@ p {
 }
 
 @media (max-width: $maxWidth_Mobile) {
+	content {
+		align-items: start;
+		flex-direction: column-reverse;
+	}
 }

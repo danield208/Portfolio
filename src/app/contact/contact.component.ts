@@ -27,7 +27,6 @@ export class ContactComponent {
 					this.contactImg.push(key[1]);
 				});
 			});
-		console.log(this.contactImg);
 	}
 
 	async sendMail() {

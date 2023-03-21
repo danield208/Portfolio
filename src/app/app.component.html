@@ -1,5 +1,6 @@
-<app-header (scrollByFunction)="setScrollByFunctionValue($event)" *ngIf="header" [ngClass]="headerClass"></app-header>
-<div class="page">
+<app-header [componentPositions]="root_DOM_Components_PositionY" (scrollByFunction)="setScrollByFunctionValue($event)"
+    *ngIf="header" [ngClass]="headerClass"></app-header>
+<div #appComponents class="page">
     <app-welcome></app-welcome>
     <app-projects></app-projects>
     <app-personal-info></app-personal-info>

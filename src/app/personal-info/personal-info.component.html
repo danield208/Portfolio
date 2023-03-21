@@ -1,6 +1,6 @@
-<h1>Was du zu meiner Person wissen musst</h1>
+<h1>Über mich</h1>
 
-<span>
+<span class="instructions">
     2015 Begann nach dem absolvieren der Realschule für mich der Eintritt ins Berufssleben. Hier begann ich eine
     Ausbildung zum Technischen Modellbauer im Lehrenbau. Seitdem bin ich in der Autobranche tätig. Zulätzt in der
     Qualitätssicherung. Aber was treibt mich vom Handwerk in die Softwareentwicklung? Bevor ich meine Ausbildung begann
@@ -12,12 +12,14 @@
     ich mich dann für die unten genannte Umschulung.
 </span>
 
-<content *ngFor="let date of personalData; index as index">
-    <div class="content">
-        <span class="year">{{ date.year }}</span>
-        <div class="dot"></div>
+<main *ngFor="let date of personalData; index as index">
+    <content class="content">
+        <div class="year_dot">
+            <span>{{ date.year }}</span>
+            <div></div>
+        </div>
         <span [innerHTML]="'personalInfo.' + date.description | translate"></span>
-    </div>
+    </content>
     <div class="line"></div>
     <p *ngIf="arrayLenght == index + 1">&#8897;</p>
-</content>
+</main>

@@ -12,7 +12,7 @@
 		"text": {
 			"interest": "An meiner Person interessiert?",
 			"contact": "Kontaktiere mich online,",
-			"contact_here": "oder kontaktiere mich direkt:"
+			"contact_here": "oder hier direkt:"
 		}
 	},
 	"Send": "Senden",
@@ -23,7 +23,7 @@
 		"contact": "Kontakt"
 	},
 
-	"profile": "Willkommen, mein Name ist Daniel Dörbaum, 24 Jahre alt und einem derzeitigen Wohnsitz in Hann. Münden. <br> Vorzufinden sind hier meine Skills, Projekte und weitere Informationen zu meiner Person.",
+	"profile": "Willkommen, mein Name ist Daniel Dörbaum, 24 Jahre alt und einem derzeitigen Wohnsitz in Hann. Münden. <br> Vorzufinden sind hier meine Skills, Projekte und ein kleiner Abschnitt über mich.",
 	"skills": "Developer Akademie: <br> HTML, CSS, JS, TS, Angular, API, Git, Scrum <br> <br> Udemy Kurse: <br> Angular",
 
 	"projects": {
