@@ -4,7 +4,6 @@ import { TranslateModule } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HeaderComponent } from "./header/header.component";
@@ -17,6 +16,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TranslateLoader } from "@ngx-translate/core";
 import { PersonalInfoComponent } from "./personal-info/personal-info.component";
+import { ProjectComponent } from "./projects/project.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -34,10 +34,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 		ContactComponent,
 		FooterComponent,
 		PersonalInfoComponent,
+		ProjectComponent,
 	],
 	imports: [
 		BrowserModule,
-		AppRoutingModule,
 		BrowserAnimationsModule,
 		FormsModule,
 		ReactiveFormsModule,

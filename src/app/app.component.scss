@@ -1,7 +1,7 @@
 @import "/src/shared/_variables.scss";
 
 .page {
-	width: 100vw;
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: column;
@@ -9,6 +9,22 @@
 	background-image: $ComponentBgColorDOWN;
 	padding: 0 $sidePadding_Desktop;
 	gap: 30px;
+}
+
+.headerDownArrow {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50% 0);
+	font-size: 2.4rem;
+	font-weight: bold;
+	opacity: 0.3;
+	cursor: pointer;
+	transition: opacity 225ms ease-in-out;
+	z-index: 10;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
 @media (max-width: $maxWidth_Mobile) {

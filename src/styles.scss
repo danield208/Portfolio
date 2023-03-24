@@ -1,3 +1,5 @@
+@import "/src/shared/_variables.scss";
+
 /* You can add global styles to this file, and also import other style files */
 @font-face {
 	font-family: BlackOpsOne;
@@ -24,32 +26,13 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: SulphurPoint_Regular, sans-serif;
-	font-size: 1rem;
 	color: white;
 }
 
-// scrollbar
-::-webkit-scrollbar {
-	// width: 10px;
-	width: 0;
-}
+html {
+	scrollbar-width: none;
 
-::-webkit-scrollbar-track {
-	background: #f1f1f1;
-	// border-radius: 5px;
-	// margin: 10vh 0;
-}
-
-::-webkit-scrollbar-thumb {
-	background: #888;
-	// border-radius: 5px;
-
-	&:hover {
-		background: #555;
+	& ::-webkit-scrollbar {
+		display: none;
 	}
-}
-
-app-root {
-	display: flex;
-	flex-direction: column;
 }

@@ -1,6 +1,6 @@
 {
 	"wetterapi": {
-		"Title": "WeatherAPI",
+		"Title": "Weather",
 		"ImgSrc": "./assets/images/wetterapi.png",
 		"InfoText": "wetterAPI_info",
 		"Particularities": "Angular, API, Firebase",

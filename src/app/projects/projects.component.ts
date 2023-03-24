@@ -3,14 +3,21 @@ import { Component } from "@angular/core";
 
 @Component({
 	selector: "app-projects",
-	templateUrl: "./projects.component.html",
+	template: `
+		<h1 [innerHTML]="'projects.title' | translate">###</h1>
+		<main>
+			<app-project
+				*ngFor="let project of projects; let Index = index"
+				[projectData]="project"
+				[Index]="Index"
+			></app-project>
+		</main>
+	`,
 	styleUrls: ["./projects.component.scss"],
 })
 export class ProjectsComponent {
 	projects: any[] = [];
 	responsive_hide: boolean;
-	infoBox: boolean = false;
-	infoBoxClass: string = "";
 
 	constructor(public translate: TranslateService) {
 		this.fetchProjectsJson();
@@ -34,20 +41,5 @@ export class ProjectsComponent {
 			if (window.innerWidth < 529) this.responsive_hide = true;
 			else this.responsive_hide = false;
 		});
-	}
-
-	openInfo() {
-		console.log("runing");
-		this.infoBox = true;
-		this.infoBoxClass = "open";
-		setTimeout(() => {
-			this.infoBoxClass = "active";
-		}, 225);
-		setTimeout(() => {
-			this.infoBoxClass = "active close";
-			setTimeout(() => {
-				this.infoBox = false;
-			}, 225);
-		}, 2500);
 	}
 }
