@@ -12,16 +12,39 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
 				<span>{{ "projects." + projectData.InfoText | translate }}</span>
 				<span>{{ projectData.Particularities }}</span>
 			</div>
-			<div [@hoverAnimation]="mouseOver ? 'mouseIn' : 'mouseOut'" class="hoverField" #hoverField>Lorem</div>
+			<div [@hoverAnimation]="InfoField ? 'mouseIn' : 'mouseOut'" class="hoverField" #hoverField>Info</div>
+			<div @moveIn *ngIf="InfoField" class="infoField" #infoField>
+				<a>GitHub</a>
+				<a>WebSite</a>
+				<a>###</a>
+			</div>
 		</content>
 	`,
 	styleUrls: ["./project.component.scss"],
 	animations: [
 		trigger("hoverAnimation", [
-			transition("mouseOut => mouseIn", [style({ scale: 1 }), animate("225ms", style({ scale: 1.2 }))]),
-			state("mouseIn", style({ scale: "1.2" })),
-			transition("mouseIn => mouseOut", [style({ scale: 1.2 }), animate("225ms", style({ scale: 1 }))]),
-			state("mouseOut", style({ scale: "1.0" })),
+			transition("mouseOut => mouseIn", [
+				style({ color: "white" }),
+				animate("225ms", style({ color: "rgba(255, 255, 255, 0)" })),
+			]),
+			state("mouseIn", style({ color: "rgba(255, 255, 255, 0)" })),
+			transition("mouseIn => mouseOut", [
+				style({ color: "rgba(255, 255, 255, 0)" }),
+				animate("225ms", style({ color: "white" })),
+			]),
+			state("mouseOut", style({ color: "white" })),
+		]),
+		trigger("moveIn", [
+			transition(":enter", [
+				style({ right: "-120px", color: "rgba(255, 255, 255, 0)" }),
+				animate("225ms", style({ right: "0", color: "white" })),
+			]),
+			// state("mouseIn", style({ color: "rgba(255, 255, 255, 0)" })),
+			transition(":leave", [
+				style({ right: "0", color: "white" }),
+				animate("225ms", style({ right: "-120px", color: "rgba(255, 255, 255, 0)" })),
+			]),
+			// state("mouseOut", style({ color: "white" })),
 		]),
 	],
 })
@@ -31,15 +54,19 @@ export class ProjectComponent implements AfterViewInit {
 	@Input() Index!: number;
 	@Input() projectData: any = {};
 	@ViewChild("hoverField") hoverField!: ElementRef;
+	@ViewChild("infoField") infoField!: ElementRef;
+	InfoField: boolean = false;
 
 	constructor() {}
 
 	ngAfterViewInit(): void {
 		this.hoverField.nativeElement.addEventListener("mouseenter", () => {
-			this.mouseOver = true;
-		});
-		this.hoverField.nativeElement.addEventListener("mouseleave", () => {
-			this.mouseOver = false;
+			this.InfoField = true;
+			setTimeout(() => {
+				this.infoField.nativeElement.addEventListener("mouseleave", () => {
+					this.InfoField = false;
+				});
+			}, 16);
 		});
 	}
 }

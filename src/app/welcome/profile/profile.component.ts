@@ -3,7 +3,14 @@ import { Component, Input } from "@angular/core";
 
 @Component({
 	selector: "app-profile",
-	templateUrl: "./profile.component.html",
+	template: `
+		<div>
+			<img *ngIf="!responsive_hide" src="./assets/images/mann.png" alt="profilbild" />
+			<span [innerHTML]="'profile' | translate">###</span>
+		</div>
+
+		<app-skills></app-skills>
+	`,
 	styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent {

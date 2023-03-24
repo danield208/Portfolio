@@ -1,12 +1,12 @@
 <h1 [innerHTML]="'contact.text.interest' | translate">###</h1>
-<div class="socialMedia">
+<!-- <div class="socialMedia">
     <h2 [innerHTML]="'contact.text.contact' | translate">###</h2>
     <div>
         <img *ngFor="let img of contactImg" [src]="img.localSrc">
     </div>
-</div>
+</div> -->
 <div class="contactForm">
-    <h2 [innerHTML]="'contact.text.contact_here' | translate">###</h2>
+    <!-- <h2 [innerHTML]="'contact.text.contact_here' | translate">###</h2> -->
     <form (submit)="sendMail()" ngNativeValidate #contactform>
         <input required name="name" [placeholder]="'contact.form.name' | translate" #nameField>
         <input required name="email" [placeholder]="'contact.form.mail' | translate" #mailField>
