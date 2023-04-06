@@ -7,12 +7,9 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
 	templateUrl: "./app.component.html",
 	styleUrls: ["./app.component.scss"],
 	animations: [
-		trigger("fadeIn", [transition(":enter", [style({ top: "-40px" }), animate("225ms", style({ top: "10px" }))])]),
-		trigger("fadeOut", [
-			transition(":leave", [
-				style({ top: "10px", opacity: "0.3" }),
-				animate("225ms", style({ top: "-20px", opacity: "0" })),
-			]),
+		trigger("fadeInOut", [
+			transition(":enter", [style({ top: "-80px" }), animate("225ms", style({ top: "18px" }))]),
+			transition(":leave", [style({ top: "18px" }), animate("225ms", style({ top: "-80px" }))]),
 		]),
 	],
 })
@@ -20,7 +17,8 @@ export class AppComponent implements AfterViewInit {
 	title = "Portfolio";
 	header: boolean = true;
 	lastScroll: number = 0;
-	headerClass: string = "showState";
+	// headerClass: string = "showState";
+	headerClass!: string;
 	scrollByFunction: boolean = false;
 	firstInit: number = 0;
 	@ViewChild("appComponents") app_project!: ElementRef;
@@ -67,31 +65,23 @@ export class AppComponent implements AfterViewInit {
 	}
 
 	isHeaderShwon(currentScroll: number) {
-		return currentScroll > this.lastScroll && currentScroll > 180 && this.headerClass == "showState";
+		return currentScroll > this.lastScroll && currentScroll > 180 && this.header;
 	}
 
 	hideHeader() {
-		this.headerClass = "animateUp";
 		this.headerArrow_symbol = "&#8744;";
-		setTimeout(() => {
-			this.headerClass = "hideState";
-			this.headerArrow = true;
-		}, 225);
+		this.header = false;
 	}
 
 	isHeaderHidden(currentScroll: number) {
-		return currentScroll < this.lastScroll && currentScroll > 180 && this.headerClass == "hideState";
+		return currentScroll < this.lastScroll && currentScroll > 180 && !this.header;
 	}
 
 	showHeader() {
 		this.headerArrow_symbol = "&#8743;";
 		setTimeout(() => {
-			this.headerArrow = false;
-		}, 20);
-		this.headerClass = "animateDown";
-		setTimeout(() => {
-			this.headerClass = "showState";
-		}, 225);
+			this.header = true;
+		}, 10);
 	}
 
 	setScrollByFunctionValue(status: boolean) {

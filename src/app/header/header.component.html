@@ -1,6 +1,7 @@
 <div class="border"></div>
 <div class="main">
     <h1>DD</h1>
+    <button *ngIf="mobileView">Burger</button>
     <nav #nav>
         <span (click)="browserJump('start')" value="start" class="position">Start</span>
         <span (click)="browserJump('skills')" [innerHTML]="'header.skills' | translate" value="skills">###</span>

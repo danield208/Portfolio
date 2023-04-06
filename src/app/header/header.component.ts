@@ -1,12 +1,14 @@
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter, Input, OnInit } from "@angular/core";
+import { fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
 	selector: "app-header",
 	templateUrl: "./header.component.html",
 	styleUrls: ["./header.component.scss"],
+	animations: [],
 })
-export class HeaderComponent implements AfterViewInit {
+export class HeaderComponent implements AfterViewInit, OnInit {
 	@ViewChild("languagePicker") div_DOM!: ElementRef;
 	@ViewChild("nav") nav_DOM!: ElementRef;
 	div_DOM_SpanChilds: Array<HTMLSpanElement> = [];
@@ -19,14 +21,24 @@ export class HeaderComponent implements AfterViewInit {
 	timeouts: Array<any> = [];
 	showMobileNav: boolean = true;
 	components: Array<string> = ["start", "skills", "projects", "personal", "contact"];
-	// lastScrollPosition!: number;
-	// isScrolling: boolean = false;
+	windowWidth: number = 646;
+	resizeObservable$!: Observable<Event>;
+	resizeSubscription$!: Subscription;
+	mobileView: boolean = false;
 
 	constructor(public translate: TranslateService) {
 		translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			localStorage.setItem("page_language", event.lang);
 		});
 		this.downloadLangJSONs();
+	}
+
+	ngOnInit(): void {
+		this.resizeObservable$ = fromEvent(window, "resize");
+		this.resizeSubscription$ = this.resizeObservable$.subscribe((evt: any) => {
+			if (window.innerWidth <= this.windowWidth) this.mobileView = true;
+			else this.mobileView = false;
+		});
 	}
 
 	downloadLangJSONs() {
@@ -69,15 +81,6 @@ export class HeaderComponent implements AfterViewInit {
 
 	addEventListeners() {
 		window.addEventListener("scroll", () => {
-			// if (this.lastScrollPosition < window.scrollY && !this.isScrolling) {
-			// 	this.jumpDown();
-			// 	this.isScrolling = true;
-			// } else if (!this.isScrolling) {
-			// 	this.jumpUp();
-			// 	this.isScrolling = true;
-			// }
-			// this.lastScrollPosition = window.scrollY;
-
 			this.components.forEach((component: string) => {
 				if (this.checkComponentCollision(component)) {
 					this.currentPosition = component;
@@ -86,29 +89,6 @@ export class HeaderComponent implements AfterViewInit {
 			});
 		});
 	}
-
-	// jumpUp() {
-	// 	console.log("up", this.currentPosition);
-	// 	let index = this.components.findIndex((comp) => comp == this.currentPosition);
-	// 	index--;
-	// 	let Up: string = this.components[index];
-	// 	this.browserJump(Up);
-	// 	setTimeout(() => {
-	// 		this.isScrolling = false;
-	// 	}, 800);
-	// }
-
-	// jumpDown() {
-	// 	console.log("down", this.currentPosition);
-	// 	console.log("up", this.currentPosition);
-	// 	let index = this.components.findIndex((comp) => comp == this.currentPosition);
-	// 	index++;
-	// 	let down: string = this.components[index];
-	// 	this.browserJump(down);
-	// 	setTimeout(() => {
-	// 		this.isScrolling = false;
-	// 	}, 800);
-	// }
 
 	checkComponentCollision(component: string): any {
 		let headerIfStatements: Array<Boolean> = [

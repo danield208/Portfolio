@@ -4,15 +4,17 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
 	selector: "app-footer",
 	template: `
-		<content>
-			<a>Instagram</a>
-			<a>GitHub</a>
-		</content>
-		<div class="separator"></div>
-		<content>
-			<a>Impressum</a>
-			<a>Datenschutzerklärung</a>
-		</content>
+		<div class="main">
+			<content>
+				<a>Instagram</a>
+				<a>GitHub</a>
+			</content>
+			<div class="separator"></div>
+			<content>
+				<a>Impressum</a>
+				<a>Datenschutzerklärung</a>
+			</content>
+		</div>
 	`,
 	styleUrls: ["./footer.component.scss"],
 })

@@ -2,38 +2,16 @@
 
 :host {
 	position: fixed;
-	top: -80px;
+	top: 18px;
 	left: $sidePadding_Desktop;
 	right: $sidePadding_Desktop;
 	height: 60px;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
-	// border: 1px solid white;
-	// border-radius: 12px;
 	color: white;
 
 	z-index: 9999;
-
-	&.animateDown {
-		transform: translate3d(0, 0, 0);
-		animation: showHeader 235ms ease-in-out;
-	}
-
-	&.animateUp {
-		transform: translate3d(0, +180%, 0);
-		animation: hideHeader 235ms ease-in-out;
-	}
-
-	&.showState {
-		transform: translate3d(0, +180%, 0);
-	}
-
-	&.hideState {
-		transform: translate3d(0, 0, 0);
-	}
 }
 
 .border,
@@ -68,24 +46,11 @@
 .main {
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
-	// background-color: rgb(68, 68, 68);
 	background-color: black;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 28px;
-}
-
-@keyframes showHeader {
-	100% {
-		transform: translate3d(0, +180%, 0);
-	}
-}
-
-@keyframes hideHeader {
-	100% {
-		transform: translate3d(0, 0, 0);
-	}
 }
 
 h1 {

@@ -8,9 +8,22 @@
 <div class="contactForm">
     <!-- <h2 [innerHTML]="'contact.text.contact_here' | translate">###</h2> -->
     <form (submit)="sendMail()" ngNativeValidate #contactform>
-        <input required name="name" [placeholder]="'contact.form.name' | translate" #nameField>
-        <input required name="email" [placeholder]="'contact.form.mail' | translate" #mailField>
-        <textarea required name="message" [placeholder]="'contact.form.message' | translate" #messageField></textarea>
-        <button translate #formButton>Send</button>
+        <div class="cube input">
+            <div class="border"></div>
+            <input required name="name" [placeholder]="'contact.form.name' | translate" #nameField>
+        </div>
+        <div class="cube input">
+            <div class="border"></div>
+            <input required name="email" [placeholder]="'contact.form.mail' | translate" #mailField>
+        </div>
+        <div class="cube text">
+            <div class="borderTextarea"></div>
+            <textarea required name="message" [placeholder]="'contact.form.message' | translate"
+                #messageField></textarea>
+        </div>
+        <div class="cube buttom">
+            <div class="borderButton"></div>
+            <button translate #formButton>Send</button>
+        </div>
     </form>
 </div>

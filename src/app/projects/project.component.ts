@@ -14,14 +14,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from "@angular
 					<span>{{ "projects." + projectData.InfoText | translate }}</span>
 					<span>{{ projectData.Particularities }}</span>
 				</div>
-				<div
-					[@hoverAnimation]="InfoField ? 'mouseIn' : 'mouseOut'"
-					class="hoverField"
-					(click)="InfoField = !InfoField"
-					#hoverField
-				>
-					&#x3c;
-				</div>
+				<div class="hoverField" (click)="InfoField = !InfoField" #hoverField>&#x3c;</div>
 				<div @moveIn *ngIf="InfoField" class="infoField" (click)="InfoField = !InfoField" #infoField>
 					<a>GitHub</a>
 					<a>WebSite</a>
@@ -30,6 +23,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from "@angular
 			</div>
 		</content>
 	`,
+	// [@hoverAnimation]="InfoField ? 'mouseIn' : 'mouseOut'"
 	styleUrls: ["./project.component.scss"],
 	animations: [
 		// trigger("hoverAnimation", [

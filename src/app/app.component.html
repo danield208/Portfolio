@@ -1,7 +1,7 @@
-<app-header [componentPositions]="root_DOM_Components_PositionY" (scrollByFunction)="setScrollByFunctionValue($event)"
-    *ngIf="header" [ngClass]="headerClass"></app-header>
-<div @fadeIn @fadeOut (click)="showHeader()" *ngIf="headerArrow" class="headerDownArrow"
-    [innerHTML]="headerArrow_symbol">
+<app-header *ngIf="header" @fadeInOut [componentPositions]="root_DOM_Components_PositionY"
+    (scrollByFunction)="setScrollByFunctionValue($event)">
+</app-header>
+<div *ngIf="!header" @fadeInOut (click)="showHeader()" class="headerDownArrow" [innerHTML]="headerArrow_symbol">
 </div>
 <div #appComponents class="page">
     <app-welcome></app-welcome>
