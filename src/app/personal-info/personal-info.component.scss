@@ -44,7 +44,21 @@ content {
 		width: 16px;
 		border-radius: 100%;
 		margin-right: 16px;
-		background-color: $Yellow;
+		background-image: linear-gradient(
+			to right bottom,
+			#bc13fe,
+			#ca27fe,
+			#d636fe,
+			#e244fe,
+			#ed51fe,
+			#c076ff,
+			#978dff,
+			#799bff,
+			#22abf9,
+			#00b4e4,
+			#21b9c9,
+			#5ebab0
+		);
 	}
 }
 
@@ -52,18 +66,49 @@ content {
 	width: 2px;
 	height: 40px;
 	border-radius: 1px;
-	background-color: $Yellow;
+	background-image: linear-gradient(
+		to right bottom,
+		#bc13fe,
+		#ca27fe,
+		#d636fe,
+		#e244fe,
+		#ed51fe,
+		#c076ff,
+		#978dff,
+		#799bff,
+		#22abf9,
+		#00b4e4,
+		#21b9c9,
+		#5ebab0
+	);
 	margin: 0 7px;
 	position: relative;
 	left: 48px;
 }
 
 p {
-	color: $Yellow;
+	font-size: 20px;
+	background-image: linear-gradient(
+		to right top,
+		#d16ba5,
+		#c777b9,
+		#ba83ca,
+		#aa8fd8,
+		#9a9ae1,
+		#8aa7ec,
+		#79b3f4,
+		#69bff8,
+		#52cffe,
+		#41dfff,
+		#46eefa,
+		#5ffbf1
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 	font-weight: bold;
 	position: relative;
 	top: -5px;
-	left: 48px;
+	left: 47px;
 }
 
 @media (max-width: $maxWidth_Mobile) {

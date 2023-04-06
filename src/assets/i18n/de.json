@@ -1,6 +1,6 @@
 {
 	"startpage": {
-		"greeting": "Willkommen <br> auf meinem <br> Portfolio"
+		"greeting": "Willkommen auf meinem Portfolio"
 	},
 
 	"contact": {
@@ -18,12 +18,13 @@
 	"Send": "Senden",
 
 	"header": {
+		"skills": "Skills",
 		"projects": "Projekte",
 		"personal": "Person",
 		"contact": "Kontakt"
 	},
 
-	"profile": "Willkommen, mein Name ist Daniel Dörbaum, 24 Jahre alt und einem derzeitigen Wohnsitz in Hann. Münden. <br> Vorzufinden sind hier meine Skills, Projekte und ein kleiner Abschnitt über mich.",
+	"profile": "Schön, dass du da bist. Mit 24 Jahren bin ich Junior Frontend Web Entwickler. Hier wirst du mehr über mich erfahren, welche Skills ich besitze - an welchen Projekten ich arbeite und Wie du mich kontaktieren kannst.",
 	"skills": "Developer Akademie: <br> HTML, CSS, JS, TS, Angular, API, Git, Scrum <br> <br> Udemy Kurse: <br> Angular",
 
 	"projects": {

@@ -1,16 +1,9 @@
-<div class="content">
+<content>
     <div>
         <h1 [innerHTML]="'startpage.greeting' | translate">###</h1>
-        <hr *ngIf="!responsive_hide">
-        <hr *ngIf="!responsive_hide">
-        <hr *ngIf="!responsive_hide">
+        <span [innerHTML]="'profile' | translate">###</span>
     </div>
+    <img src="./assets/images/me.png" alt="profilbild" />
+</content>
 
-
-    <div>
-        <img [src]="imgSrc" alt="pic of me">
-        <span>Junior Frontend Developer</span>
-    </div>
-</div>
-
-<app-profile [responsive_hide]="responsive_hide"></app-profile>
+<div class="line"></div>

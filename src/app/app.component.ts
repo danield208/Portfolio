@@ -66,7 +66,7 @@ export class AppComponent implements AfterViewInit {
 		});
 	}
 
-	isHeaderShwon(currentScroll: Number) {
+	isHeaderShwon(currentScroll: number) {
 		return currentScroll > this.lastScroll && currentScroll > 180 && this.headerClass == "showState";
 	}
 
@@ -79,7 +79,7 @@ export class AppComponent implements AfterViewInit {
 		}, 225);
 	}
 
-	isHeaderHidden(currentScroll: Number) {
+	isHeaderHidden(currentScroll: number) {
 		return currentScroll < this.lastScroll && currentScroll > 180 && this.headerClass == "hideState";
 	}
 

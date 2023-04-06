@@ -1,5 +1,5 @@
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
-import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter, Input } from "@angular/core";
+import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter, Input, OnInit } from "@angular/core";
 
 @Component({
 	selector: "app-header",
@@ -17,7 +17,10 @@ export class HeaderComponent implements AfterViewInit {
 	currentPosition!: string;
 	pageOffset: number = 300;
 	timeouts: Array<any> = [];
-	components: Array<string> = ["start", "projects", "personal", "contact"];
+	showMobileNav: boolean = true;
+	components: Array<string> = ["start", "skills", "projects", "personal", "contact"];
+	// lastScrollPosition!: number;
+	// isScrolling: boolean = false;
 
 	constructor(public translate: TranslateService) {
 		translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -66,6 +69,15 @@ export class HeaderComponent implements AfterViewInit {
 
 	addEventListeners() {
 		window.addEventListener("scroll", () => {
+			// if (this.lastScrollPosition < window.scrollY && !this.isScrolling) {
+			// 	this.jumpDown();
+			// 	this.isScrolling = true;
+			// } else if (!this.isScrolling) {
+			// 	this.jumpUp();
+			// 	this.isScrolling = true;
+			// }
+			// this.lastScrollPosition = window.scrollY;
+
 			this.components.forEach((component: string) => {
 				if (this.checkComponentCollision(component)) {
 					this.currentPosition = component;
@@ -75,6 +87,29 @@ export class HeaderComponent implements AfterViewInit {
 		});
 	}
 
+	// jumpUp() {
+	// 	console.log("up", this.currentPosition);
+	// 	let index = this.components.findIndex((comp) => comp == this.currentPosition);
+	// 	index--;
+	// 	let Up: string = this.components[index];
+	// 	this.browserJump(Up);
+	// 	setTimeout(() => {
+	// 		this.isScrolling = false;
+	// 	}, 800);
+	// }
+
+	// jumpDown() {
+	// 	console.log("down", this.currentPosition);
+	// 	console.log("up", this.currentPosition);
+	// 	let index = this.components.findIndex((comp) => comp == this.currentPosition);
+	// 	index++;
+	// 	let down: string = this.components[index];
+	// 	this.browserJump(down);
+	// 	setTimeout(() => {
+	// 		this.isScrolling = false;
+	// 	}, 800);
+	// }
+
 	checkComponentCollision(component: string): any {
 		let headerIfStatements: Array<Boolean> = [
 			(window.scrollY >= 0 || window.scrollY >= this.pageOffset) &&
@@ -83,7 +118,9 @@ export class HeaderComponent implements AfterViewInit {
 				window.scrollY <= this.componentPositions[2] - this.pageOffset,
 			window.scrollY >= this.componentPositions[2] - this.pageOffset &&
 				window.scrollY <= this.componentPositions[3] - this.pageOffset,
-			window.scrollY >= this.componentPositions[3] - this.pageOffset && window.scrollY <= window.innerHeight * 4,
+			window.scrollY >= this.componentPositions[3] - this.pageOffset &&
+				window.scrollY <= this.componentPositions[4] - this.pageOffset,
+			window.scrollY >= this.componentPositions[4] - this.pageOffset && window.scrollY <= window.innerHeight * 5,
 		];
 		for (let index = 0; index < this.components.length; index++) {
 			if (headerIfStatements[index] && this.components[index] == component) return true;
@@ -126,6 +163,10 @@ export class HeaderComponent implements AfterViewInit {
 				document
 					.querySelector("app-welcome")
 					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				break;
+			case "skills":
+				this.scrollByFuntionStatus();
+				document.querySelector("app-skills")?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 				break;
 			case "projects":
 				this.scrollByFuntionStatus();

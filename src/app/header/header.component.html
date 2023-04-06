@@ -1,12 +1,16 @@
-<h1>DD</h1>
-<nav #nav>
-    <span (click)="browserJump('start')" value="start" class="position">Start</span>
-    <span (click)="browserJump('projects')" [innerHTML]="'header.projects' | translate" value="projects">###</span>
-    <span (click)="browserJump('personal')" [innerHTML]="'header.personal' | translate" value="personal">###</span>
-    <span (click)="browserJump('contact')" [innerHTML]="'header.contact' | translate" value="contact">###</span>
-    <div #languagePicker>
-        <span (click)="changeLang($event)" value="de">DE</span>
-        <p>|</p>
-        <span (click)="changeLang($event)" value="en">EN</span>
-    </div>
-</nav>
+<div class="border"></div>
+<div class="main">
+    <h1>DD</h1>
+    <nav #nav>
+        <span (click)="browserJump('start')" value="start" class="position">Start</span>
+        <span (click)="browserJump('skills')" [innerHTML]="'header.skills' | translate" value="skills">###</span>
+        <span (click)="browserJump('projects')" [innerHTML]="'header.projects' | translate" value="projects">###</span>
+        <span (click)="browserJump('personal')" [innerHTML]="'header.personal' | translate" value="personal">###</span>
+        <span (click)="browserJump('contact')" [innerHTML]="'header.contact' | translate" value="contact">###</span>
+        <div #languagePicker>
+            <span (click)="changeLang($event)" value="de">DE</span>
+            <p>|</p>
+            <span (click)="changeLang($event)" value="en">EN</span>
+        </div>
+    </nav>
+</div>

@@ -1,5 +1,6 @@
 import { TranslateService } from "@ngx-translate/core";
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-welcome",
@@ -7,30 +8,18 @@ import { Component } from "@angular/core";
 	styleUrls: ["./welcome.component.scss"],
 })
 export class WelcomeComponent {
-	responsive_hide: boolean;
-	imgSrc: string;
+	skillinfos: boolean = false;
 
-	constructor(public translate: TranslateService) {
-		if (window.innerWidth < 529) {
-			this.responsive_hide = true;
-			this.imgSrc = "./assets/images/mann.png";
-		} else {
-			this.responsive_hide = false;
-			this.imgSrc = "./assets/images/test.png";
-		}
+	constructor(public translate: TranslateService, public router: Router) {
+		router.events.subscribe((val) => {
+			let res: any = val;
+			if (res.url === "/skillinfos") this.skillinfos = true;
+			else if (res.url === undefined) return;
+			else this.skillinfos = false;
+		});
 
 		this.initEventListener();
 	}
 
-	initEventListener() {
-		window.addEventListener("resize", () => {
-			if (window.innerWidth < 529) {
-				this.responsive_hide = true;
-				this.imgSrc = "./assets/images/mann.png";
-			} else {
-				this.responsive_hide = false;
-				this.imgSrc = "./assets/images/test.png";
-			}
-		});
-	}
+	initEventListener() {}
 }

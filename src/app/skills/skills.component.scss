@@ -1,0 +1,69 @@
+@import "/src/shared/_variables.scss";
+
+:host {
+	width: 100%;
+	padding: 120px 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 28px;
+}
+
+content {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	height: 150px;
+
+	div {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 12px;
+		transition: all 225ms ease-in-out;
+		filter: blur(4px);
+	}
+
+	&:hover div {
+		transform: translate3d(0px, 0px, 0) scale(1.03);
+		background-image: linear-gradient(
+			to right bottom,
+			#bc13fe,
+			#ca27fe,
+			#d636fe,
+			#e244fe,
+			#ed51fe,
+			#c076ff,
+			#978dff,
+			#799bff,
+			#22abf9,
+			#00b4e4,
+			#21b9c9,
+			#5ebab0
+		);
+	}
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		padding: 40px;
+
+		border-radius: 12px;
+	}
+
+	span {
+		bottom: 8px;
+		transition: opacity 225ms ease-in-out;
+		opacity: 0;
+		position: absolute;
+	}
+
+	&:hover span {
+		opacity: 1;
+	}
+}

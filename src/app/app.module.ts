@@ -8,15 +8,15 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HeaderComponent } from "./header/header.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
-import { SkillsComponent } from "./welcome/profile/skills/skills.component";
 import { ProjectsComponent } from "./projects/projects.component";
-import { ProfileComponent } from "./welcome/profile/profile.component";
 import { ContactComponent } from "./contact/contact.component";
 import { FooterComponent } from "./footer/footer.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TranslateLoader } from "@ngx-translate/core";
 import { PersonalInfoComponent } from "./personal-info/personal-info.component";
 import { ProjectComponent } from "./projects/project.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { SkillsComponent } from "./skills/skills.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -28,18 +28,18 @@ export function HttpLoaderFactory(http: HttpClient) {
 		AppComponent,
 		HeaderComponent,
 		WelcomeComponent,
-		SkillsComponent,
 		ProjectsComponent,
-		ProfileComponent,
 		ContactComponent,
 		FooterComponent,
 		PersonalInfoComponent,
 		ProjectComponent,
+		SkillsComponent,
 	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		FormsModule,
+		AppRoutingModule,
 		ReactiveFormsModule,
 		TranslateModule.forRoot({
 			defaultLanguage: "de",
