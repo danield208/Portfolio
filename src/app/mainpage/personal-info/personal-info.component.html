@@ -1,0 +1,15 @@
+<h1 [innerHTML]="'personalInfo.title' | translate">Über mich</h1>
+
+<span class="instructions" [innerText]="'personalInfo.personalText' | translate"></span>
+
+<main *ngFor="let date of personalData; index as index">
+    <content class="content">
+        <div class="year_dot">
+            <span>{{ date.year }}</span>
+            <div></div>
+        </div>
+        <span [innerText]="'personalInfo.' + date.description | translate"></span>
+    </content>
+    <div class="line"></div>
+    <p *ngIf="arrayLenght == index + 1">&#8897;</p>
+</main>

@@ -43,8 +43,12 @@
 	background-color: black;
 }
 
-content:nth-child(1),
-content:nth-child(2) {
+nav {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .separator {
@@ -53,8 +57,15 @@ content:nth-child(2) {
 	background-color: white;
 }
 
-@media (max-width: $maxWidth_Mobile) {
-	:host {
+@media (max-width: 824px) {
+	.main {
 		padding: 0 $sidePadding_Mobile;
+	}
+}
+
+@media (max-width: 624px) {
+	nav {
+		flex-direction: column;
+		justify-content: center;
 	}
 }

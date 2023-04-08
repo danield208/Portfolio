@@ -2,25 +2,12 @@
 	"wetterapi": {
 		"Title": "Weather",
 		"ImgSrc": "./assets/images/wetterapi.png",
-		"InfoText": "wetterAPI_info",
-		"Particularities": "Angular, API, Firebase",
-		"SiteLink": "#",
-		"GithubLink": "#"
-	},
-	"join": {
-		"Title": "Join",
-		"ImgSrc": "./assets/images/wetterapi.png",
-		"InfoText": "join_info",
-		"Particularities": "Vanilla",
-		"SiteLink": "#",
-		"GithubLink": "#"
-	},
-	"slacclone": {
-		"Title": "Slac Clone",
-		"ImgSrc": "./assets/images/wetterapi.png",
-		"InfoText": "slacClone_info",
-		"Particularities": "Angular, Firebase",
-		"SiteLink": "#",
+		"InfoText": {
+			"de": "Eine kleine WebApp, für das mobile Endgerät optimiert. Hier wird mit Hilfe einer Wetter API Informationen zum Wetter angezeigt.",
+			"en": "A small webapp optimice for the mobile enddevice. With the help of an weather API service you can look into specific weather data."
+		},
+		"Particularities": "Angular, API, HTTP",
+		"SiteLink": "http://weather.danieldoerbaum.de",
 		"GithubLink": "#"
 	}
 }

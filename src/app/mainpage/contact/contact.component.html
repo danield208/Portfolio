@@ -1,12 +1,5 @@
-<h1 [innerHTML]="'contact.text.interest' | translate">###</h1>
-<!-- <div class="socialMedia">
-    <h2 [innerHTML]="'contact.text.contact' | translate">###</h2>
-    <div>
-        <img *ngFor="let img of contactImg" [src]="img.localSrc">
-    </div>
-</div> -->
+<h1 [innerText]="'contact.title.interest' | translate">###</h1>
 <div class="contactForm">
-    <!-- <h2 [innerHTML]="'contact.text.contact_here' | translate">###</h2> -->
     <form (submit)="sendMail()" ngNativeValidate #contactform>
         <div class="cube input">
             <div class="border"></div>
@@ -23,7 +16,7 @@
         </div>
         <div class="cube buttom">
             <div class="borderButton"></div>
-            <button translate #formButton>Send</button>
+            <button [innerText]="'contact.button' | translate">Send</button>
         </div>
     </form>
 </div>

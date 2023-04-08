@@ -11,6 +11,7 @@ import { fromEvent, Observable, Subscription } from "rxjs";
 export class HeaderComponent implements AfterViewInit, OnInit {
 	@ViewChild("languagePicker") div_DOM!: ElementRef;
 	@ViewChild("nav") nav_DOM!: ElementRef;
+	@ViewChild("main") mainElem!: ElementRef;
 	div_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	nav_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	languages: Array<string> = ["en", "de"];
@@ -25,20 +26,33 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 	resizeObservable$!: Observable<Event>;
 	resizeSubscription$!: Subscription;
 	mobileView: boolean = false;
+	mobileNavOpen: boolean = true;
 
 	constructor(public translate: TranslateService) {
 		translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			localStorage.setItem("page_language", event.lang);
 		});
+		if (window.innerWidth <= this.windowWidth) this.mobileView = true;
+		else this.mobileView = false;
 		this.downloadLangJSONs();
 	}
 
 	ngOnInit(): void {
 		this.resizeObservable$ = fromEvent(window, "resize");
 		this.resizeSubscription$ = this.resizeObservable$.subscribe((evt: any) => {
-			if (window.innerWidth <= this.windowWidth) this.mobileView = true;
-			else this.mobileView = false;
+			if (window.innerWidth <= this.windowWidth) {
+				this.ngAfterViewInit();
+				this.mobileView = true;
+			} else {
+				this.ngAfterViewInit();
+				this.mobileView = false;
+			}
 		});
+	}
+
+	toggleMenu() {
+		this.mobileNavOpen = !this.mobileNavOpen;
+		this.mainElem.nativeElement.classList.toggle("openMenuMain");
 	}
 
 	downloadLangJSONs() {
@@ -48,10 +62,12 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 	}
 
 	ngAfterViewInit(): void {
-		this.setLanguagePickerChilds();
-		this.setNavChilds();
-		this.ifLocalStorage_init();
-		this.addEventListeners();
+		if (!this.mobileView) {
+			this.setLanguagePickerChilds();
+			this.setNavChilds();
+			this.ifLocalStorage_init();
+			this.addEventListeners();
+		}
 	}
 
 	setLanguagePickerChilds() {

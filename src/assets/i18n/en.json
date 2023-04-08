@@ -1,46 +1,39 @@
 {
+	"header": {
+		"skills": "Skills",
+		"projects": "Projects",
+		"personal": "Person",
+		"contact": "Contact"
+	},
+
 	"startpage": {
-		"greeting": "Welcome <br> to my <br> portfolio"
+		"greeting": "Welcome to my portfolio",
+		"profile": "My name is Daniel Dörbaum, 24 years old and junior frontend webdeveloper. Here you will learn more about me - wich skills I posess, on wich projects I work und how you can contact me."
+	},
+
+	"projectTitle": "My Projects",
+
+	"personalInfo": {
+		"title": "About me",
+		"personalText": "2015 Begann nach dem absolvieren der Realschule für mich der Eintritt ins Berufssleben. Hier begann ich eine Ausbildung zum Technischen Modellbauer im Lehrenbau. Seitdem bin ich in der Autobranche tätig. Zulätzt in der Qualitätssicherung. Aber was treibt mich vom Handwerk in die Softwareentwicklung? Bevor ich meine Ausbildung begann hatte ich mich schon mit Computern beschäftigt. Als es dann zur auswahl eines Berufes kahm, waren leider die Berufsbilder der IT für mich nicht greifbar, schon daher, dass es in meinem damaligen Wohnort keine solcher stellen gab. Seit 2020 hatte ich mich dann entschieden, zu versuchen diesen Weg endlich doch zu gehen. Ich überlegte lange in welche Branche ich genau gehen soll. Nachdem es mich aber immer wieder zum Programmieren gezogen hatte, entschied ich mich dann für die unten genannte Umschulung.",
+		"translate2022": "Begin with the retraining to a Frontend Webdeveloper.",
+		"translate2023": "Completion of said retraining."
 	},
 
 	"contact": {
+		"title": {
+			"interest": "Interestet in my person?"
+		},
 		"form": {
 			"name": "Name and Surname:",
 			"mail": "E-Mail adress:",
 			"message": "Message:"
 		},
-		"text": {
-			"interest": "Interestet in my person?",
-			"contact": "Contact me online,",
-			"contact_here": "or here directly:"
-		}
-	},
-	"Send": "Send",
-
-	"header": {
-		"skills": "Skills",
-		"projects": "Projects",
-		"personal": "Person",
-		"contact": "Contact Me"
+		"button": "Send"
 	},
 
-	"profile": "Willkommen, mein Name ist Daniel Dörbaum, 24 Jahre alt und einem derzeitigen Wohnsitz in Hann. Münden. <br> Vorzufinden sind hier meine Skills, Projekte und ein kleiner Abschnitt über mich.",
-	"skills": "Developer Akademie: <br> HTML, CSS, JS, TS, Angular, API, Git, Scrum <br> <br> Udemy courses: <br> Angular",
-
-	"projects": {
-		"title": "My Projects",
-		"buttons": {
-			"visit": "Visit Site"
-		},
-		"wetterAPI_info": "A small weather WebApp for mobile use optimized. With the help of an weather API, there are displayed serveal information of the waether.",
-		"join_info": "Join is a business WebApp. With her you can manage Tasks for your projects.",
-		"slacClone_info": "Slac clone is, like the name indicates, a clone of the famous chatplatform 'Slack'."
-	},
-
-	"infobox": "This project is work in progress. If the project is finished, the link is going to work again.",
-
-	"personalInfo": {
-		"translate2022": "Beginn der Umschulung zum Frontend Web-Developer bei der Developer Akademie",
-		"translate2023": "Abschluss der genannten Umschulung"
+	"footer": {
+		"imprint": "Imprint (DE)",
+		"privacypolicy": "Privacy Policy (DE)"
 	}
 }
