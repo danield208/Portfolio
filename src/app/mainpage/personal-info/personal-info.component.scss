@@ -1,4 +1,4 @@
-@import "/src/shared/_variables.scss";
+@import "/src/assets/shared/_variables.scss";
 
 :host {
 	display: flex;
@@ -116,5 +116,11 @@ p {
 	content {
 		align-items: start;
 		flex-direction: column-reverse;
+	}
+}
+
+@media (max-width: 646px) {
+	.instructions {
+		font-size: 1.2rem;
 	}
 }

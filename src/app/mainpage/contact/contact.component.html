@@ -1,4 +1,4 @@
-<h1 [innerText]="'contact.title.interest' | translate">###</h1>
+y<h1 [innerText]="'contact.title.interest' | translate">###</h1>
 <div class="contactForm">
     <form (submit)="sendMail()" ngNativeValidate #contactform>
         <div class="cube input">
@@ -16,7 +16,7 @@
         </div>
         <div class="cube buttom">
             <div class="borderButton"></div>
-            <button [innerText]="'contact.button' | translate">Send</button>
+            <button #formButton [innerText]="'contact.button' | translate">Send</button>
         </div>
     </form>
 </div>

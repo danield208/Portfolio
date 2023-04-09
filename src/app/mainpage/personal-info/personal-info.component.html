@@ -1,6 +1,6 @@
 <h1 [innerHTML]="'personalInfo.title' | translate">Über mich</h1>
 
-<span class="instructions" [innerText]="'personalInfo.personalText' | translate"></span>
+<span class="instructions" [innerHTML]="'personalInfo.personalText' | translate"></span>
 
 <main *ngFor="let date of personalData; index as index">
     <content class="content">

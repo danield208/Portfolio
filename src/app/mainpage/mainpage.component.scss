@@ -1,4 +1,4 @@
-@import "/src/shared/_variables.scss";
+@import "/src/assets/shared/_variables.scss";
 
 .page {
 	width: 100%;
@@ -6,7 +6,6 @@
 	display: flex;
 	flex-direction: column;
 	overflow-y: auto;
-	// background-image: $ComponentBgColorDOWN;
 	padding: 0 $sidePadding_Desktop;
 	gap: 30px;
 }

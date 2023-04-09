@@ -1,0 +1,76 @@
+:host {
+	display: flex;
+	margin: 12px;
+	justify-content: center;
+	align-items: center;
+	padding: 1px 0;
+	border-radius: 12px;
+	background-image: linear-gradient(
+		to right bottom,
+		#bc13fe,
+		#ca27fe,
+		#d636fe,
+		#e244fe,
+		#ed51fe,
+		#c076ff,
+		#978dff,
+		#799bff,
+		#22abf9,
+		#00b4e4,
+		#21b9c9,
+		#5ebab0
+	);
+}
+
+button {
+	position: fixed;
+	top: 16px;
+	right: 16px;
+
+	width: 4rem;
+	height: 2rem;
+	display: flex;
+	padding: 1px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	background-image: linear-gradient(
+		to right bottom,
+		#bc13fe,
+		#ca27fe,
+		#d636fe,
+		#e244fe,
+		#ed51fe,
+		#c076ff,
+		#978dff,
+		#799bff,
+		#22abf9,
+		#00b4e4,
+		#21b9c9,
+		#5ebab0
+	);
+	border: none;
+
+	p {
+		width: 100%;
+		height: 100%;
+		border-radius: 12px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: black;
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgb(33, 33, 33);
+		}
+	}
+}
+
+.imprint {
+	padding: 12px;
+	border-radius: 12px;
+	height: 100%;
+	width: calc(100% - 2px);
+	background-color: black;
+}

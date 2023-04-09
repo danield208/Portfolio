@@ -1,4 +1,4 @@
-@import "/src/shared/_variables.scss";
+@import "/src/assets/shared/_variables.scss";
 
 /* You can add global styles to this file, and also import other style files */
 @font-face {
@@ -31,7 +31,7 @@
 
 html {
 	scrollbar-width: none;
-	background-color: black;
+	background-color: $backgroundColor;
 
 	& ::-webkit-scrollbar {
 		display: none;

@@ -1,3 +1,5 @@
+@import "/src/assets/shared/_variables.scss";
+
 :host {
 	display: flex;
 	justify-content: center;
@@ -30,7 +32,7 @@ main {
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
 	padding: 16px;
-	background-color: black;
+	background-color: $backgroundColor;
 	border-radius: 12px;
 
 	h2 {
@@ -82,7 +84,7 @@ main {
 			flex-direction: column;
 			justify-content: center;
 			align-items: end;
-			background-color: black;
+			background-color: $backgroundColor;
 		}
 	}
 }

@@ -50,5 +50,7 @@ export class ContactComponent {
 		this.mailField.nativeElement.disabled = false;
 		this.messageField.nativeElement.disabled = false;
 		this.formButton.nativeElement.disabled = false;
+
+		this.nameField.value = "";
 	}
 }

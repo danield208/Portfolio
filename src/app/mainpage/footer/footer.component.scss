@@ -1,4 +1,4 @@
-@import "/src/shared/_variables.scss";
+@import "/src/assets/shared/_variables.scss";
 
 :host {
 	position: relative;
@@ -40,7 +40,7 @@
 	align-items: center;
 	gap: 30px;
 	padding: 0 $sidePadding_Desktop;
-	background-color: black;
+	background-color: $backgroundColor;
 }
 
 nav {

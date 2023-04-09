@@ -1,4 +1,4 @@
-@import "/src/shared/_variables.scss";
+@import "/src/assets/shared/_variables.scss";
 
 :host {
 	position: fixed;
@@ -41,7 +41,7 @@
 .main {
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
-	background-color: black;
+	background-color: $backgroundColor;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -81,7 +81,7 @@
 		p {
 			width: calc(100% - 2px);
 			height: calc(100% - 2px);
-			background-color: black;
+			background-color: $backgroundColor;
 			border-radius: 12px;
 			display: flex;
 			justify-content: center;
@@ -91,9 +91,6 @@
 
 		&:hover p {
 			background-color: rgb(22, 22, 22);
-		}
-
-		&.openMenuMain {
 		}
 	}
 }
@@ -175,9 +172,9 @@ nav {
 }
 
 select {
-	color: black;
+	color: $backgroundColor;
 	option {
-		color: black;
+		color: $backgroundColor;
 	}
 }
 

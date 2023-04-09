@@ -26,11 +26,10 @@ export class MainpageComponent implements AfterViewInit {
 	headerArrow: boolean = false;
 	headerArrow_symbol: string = "&#8744;";
 
-	constructor(public translate: TranslateService) {
-		this.initHeaderAnimation();
-	}
+	constructor(public translate: TranslateService) {}
 
 	ngAfterViewInit(): void {
+		this.initHeaderAnimation();
 		this.setRootChilds();
 		document.addEventListener("resize", () => {
 			this.timeOuts.forEach((timout: number) => {
@@ -39,7 +38,7 @@ export class MainpageComponent implements AfterViewInit {
 			this.timeOuts.push(
 				setTimeout(() => {
 					this.setRootChilds();
-				}, 400)
+				}, 100)
 			);
 		});
 	}

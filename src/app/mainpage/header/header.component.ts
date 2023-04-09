@@ -40,11 +40,10 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 	mobileNavOpen: boolean = true;
 	translateObserv$: any;
 	openMobileNav: boolean = true;
-
-	@HostBinding("class.mobileOpen") test: boolean = false;
+	@HostBinding("class.mobileOpen") host: boolean = false;
 
 	constructor(public translate: TranslateService) {
-		this.translateObserv$ = translate.onLangChange.subscribe((event: LangChangeEvent) => {
+		this.translateObserv$ = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			localStorage.setItem("page_language", event.lang);
 		});
 		if (window.innerWidth <= this.windowWidth) {
@@ -80,7 +79,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	toggleMenu() {
 		this.openMobileNav = !this.openMobileNav;
-		this.test = !this.test;
+		this.host = !this.host;
 		this.mainElem.nativeElement.classList.toggle("mobileOpen");
 		if (!this.openMobileNav) this.button.nativeElement.innerHTML = "Close";
 		else this.button.nativeElement.innerText = "Open";
@@ -139,7 +138,8 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 				}
 			});
 		});
-		if (this.mobileView) {
+		if (!this.mobileView) {
+			console.log(window.scrollY, this.componentPositions[1]);
 			this.components.forEach((component: string) => {
 				if (this.checkComponentCollision(component)) {
 					this.currentPosition = component;
