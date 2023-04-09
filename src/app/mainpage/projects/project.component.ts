@@ -32,11 +32,6 @@ export class ProjectComponent implements OnInit {
 		this.observeLangChange = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			this.checkLang(event.lang);
 		});
-		console.log(
-			this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-				this.checkLang(event.lang);
-			})
-		);
 		this.checkLang(this.translate.currentLang);
 	}
 

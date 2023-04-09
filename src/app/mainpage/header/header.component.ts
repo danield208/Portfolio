@@ -1,17 +1,28 @@
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
-import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter, Input, OnInit } from "@angular/core";
+import {
+	Component,
+	ViewChild,
+	ElementRef,
+	AfterViewInit,
+	Output,
+	EventEmitter,
+	Input,
+	OnInit,
+	OnDestroy,
+	HostBinding,
+} from "@angular/core";
 import { fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
 	selector: "app-header",
 	templateUrl: "./header.component.html",
 	styleUrls: ["./header.component.scss"],
-	animations: [],
 })
-export class HeaderComponent implements AfterViewInit, OnInit {
+export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 	@ViewChild("languagePicker") div_DOM!: ElementRef;
 	@ViewChild("nav") nav_DOM!: ElementRef;
 	@ViewChild("main") mainElem!: ElementRef;
+	@ViewChild("buttonText") button!: ElementRef;
 	div_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	nav_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	languages: Array<string> = ["en", "de"];
@@ -27,13 +38,22 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 	resizeSubscription$!: Subscription;
 	mobileView: boolean = false;
 	mobileNavOpen: boolean = true;
+	translateObserv$: any;
+	openMobileNav: boolean = true;
+
+	@HostBinding("class.mobileOpen") test: boolean = false;
 
 	constructor(public translate: TranslateService) {
-		translate.onLangChange.subscribe((event: LangChangeEvent) => {
+		this.translateObserv$ = translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			localStorage.setItem("page_language", event.lang);
 		});
-		if (window.innerWidth <= this.windowWidth) this.mobileView = true;
-		else this.mobileView = false;
+		if (window.innerWidth <= this.windowWidth) {
+			this.mobileView = true;
+			this.openMobileNav = this.mobileView;
+		} else {
+			this.mobileView = false;
+			this.openMobileNav = this.mobileView;
+		}
 		this.downloadLangJSONs();
 	}
 
@@ -41,18 +61,33 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 		this.resizeObservable$ = fromEvent(window, "resize");
 		this.resizeSubscription$ = this.resizeObservable$.subscribe((evt: any) => {
 			if (window.innerWidth <= this.windowWidth) {
-				this.ngAfterViewInit();
 				this.mobileView = true;
+				this.openMobileNav = this.mobileView;
 			} else {
-				this.ngAfterViewInit();
 				this.mobileView = false;
+				this.openMobileNav = this.mobileView;
 			}
+			setTimeout(() => {
+				this.ngAfterViewInit();
+			}, 50);
 		});
 	}
 
+	ngOnDestroy(): void {
+		this.resizeSubscription$.unsubscribe();
+		this.translateObserv$.unsubscribe();
+	}
+
 	toggleMenu() {
-		this.mobileNavOpen = !this.mobileNavOpen;
-		this.mainElem.nativeElement.classList.toggle("openMenuMain");
+		this.openMobileNav = !this.openMobileNav;
+		this.test = !this.test;
+		this.mainElem.nativeElement.classList.toggle("mobileOpen");
+		if (!this.openMobileNav) this.button.nativeElement.innerHTML = "Close";
+		else this.button.nativeElement.innerText = "Open";
+
+		setTimeout(() => {
+			this.ngAfterViewInit();
+		}, 20);
 	}
 
 	downloadLangJSONs() {
@@ -62,12 +97,11 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 	}
 
 	ngAfterViewInit(): void {
-		if (!this.mobileView) {
+		if (!this.mobileView || !this.openMobileNav) {
 			this.setLanguagePickerChilds();
 			this.setNavChilds();
-			this.ifLocalStorage_init();
-			this.addEventListeners();
 		}
+		this.ifLocalStorage_init();
 	}
 
 	setLanguagePickerChilds() {
@@ -82,6 +116,7 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 				this.nav_DOM_SpanChilds.push(child);
 			}
 		});
+		this.addEventListeners();
 	}
 
 	ifLocalStorage_init() {
@@ -104,6 +139,14 @@ export class HeaderComponent implements AfterViewInit, OnInit {
 				}
 			});
 		});
+		if (this.mobileView) {
+			this.components.forEach((component: string) => {
+				if (this.checkComponentCollision(component)) {
+					this.currentPosition = component;
+					this.setNavStile();
+				}
+			});
+		}
 	}
 
 	checkComponentCollision(component: string): any {

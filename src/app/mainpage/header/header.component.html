@@ -2,10 +2,10 @@
     <content>
         <h1>DD</h1>
         <button *ngIf="mobileView" (click)="toggleMenu()">
-            <p>Open</p>
+            <p #buttonText>Open</p>
         </button>
     </content>
-    <nav *ngIf="!mobileView && !mobileNavOpen || !mobileView && mobileNavOpen" #nav>
+    <nav *ngIf="!openMobileNav" #nav>
         <span (click)="browserJump('start')" value="start" class="position">Start</span>
         <span (click)="browserJump('skills')" [innerHTML]="'header.skills' | translate" value="skills">###</span>
         <span (click)="browserJump('projects')" [innerHTML]="'header.projects' | translate" value="projects">###</span>

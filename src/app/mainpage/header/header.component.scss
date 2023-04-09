@@ -187,3 +187,23 @@ select {
 		right: $sidePadding_Mobile;
 	}
 }
+
+@media (max-width: 646px) {
+	:host(.mobileOpen) {
+		height: 346px;
+	}
+
+	.main {
+		flex-direction: column;
+		justify-content: center;
+
+		&.mobileOpen {
+			justify-content: space-evenly;
+		}
+
+		nav {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
