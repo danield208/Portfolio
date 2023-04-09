@@ -1,3 +1,5 @@
+@import "/src/assets/shared/_variables.scss";
+
 :host {
 	display: flex;
 	margin: 12px;
@@ -58,7 +60,7 @@ button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: black;
+		background-color: $backgroundColor;
 		cursor: pointer;
 
 		&:hover {
@@ -72,5 +74,5 @@ button {
 	border-radius: 12px;
 	height: 100%;
 	width: calc(100% - 2px);
-	background-color: black;
+	background-color: $backgroundColor;
 }

@@ -15,7 +15,7 @@
 
 	"personalInfo": {
 		"title": "About me",
-		"personalText": "In 2015, after graduating from secondary school, I started my professional career. Since I completed my apprenticeship as a technical model maker in gauge construction in 2019, I have been working in the automotive industry. Mainly in quality assurance. <br> <h3>But why would I switch from handicraft to software development?</h3> <br> Before I started my apprenticeship, I was already dealing with computer technology on a daily basis. I‘m very interested and in my free time I am still fascinated by the endless possibilities of software development. In 2022 I finally started the below-mentioned retraining as a frontend web developer.",
+		"personalText": "In 2015, after graduating from secondary school, I started my professional career. Since I completed my apprenticeship as a technical model maker in gauge construction in 2019, I have been working in the automotive industry. Mainly in quality assurance. <br> <br> <h3>But why would I switch from handicraft to software development?</h3> Before I started my apprenticeship, I was already dealing with computer technology on a daily basis. I‘m very interested and in my free time I am still fascinated by the endless possibilities of software development. In 2022 I finally started the below-mentioned retraining as a frontend web developer.",
 		"translate2022": "Begin with the retraining to a Frontend Webdeveloper.",
 		"translate2023": "Completion of said retraining."
 	},

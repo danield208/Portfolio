@@ -139,7 +139,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 			});
 		});
 		if (!this.mobileView) {
-			console.log(window.scrollY, this.componentPositions[1]);
 			this.components.forEach((component: string) => {
 				if (this.checkComponentCollision(component)) {
 					this.currentPosition = component;
