@@ -12,14 +12,14 @@ import { WelcomeComponent } from "./mainpage/welcome/welcome.component";
 import { ProjectsComponent } from "./mainpage/projects/projects.component";
 import { ContactComponent } from "./mainpage/contact/contact.component";
 import { FooterComponent } from "./mainpage/footer/footer.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { TranslateLoader } from "@ngx-translate/core";
 import { PersonalInfoComponent } from "./mainpage/personal-info/personal-info.component";
 import { ProjectComponent } from "./mainpage/projects/project.component";
 import { SkillsComponent } from "./mainpage/skills/skills.component";
 import { MainpageComponent } from "./mainpage/mainpage.component";
 import { ImprintComponent } from "./imprint/imprint.component";
-import { DataprotectComponent } from './dataprotect/dataprotect.component';
+import { DataprotectComponent } from "./dataprotect/dataprotect.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,12 +39,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 		SkillsComponent,
 		MainpageComponent,
 		ImprintComponent,
-  DataprotectComponent,
+		DataprotectComponent,
 	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
-		FormsModule,
 		AppRoutingModule,
 		ReactiveFormsModule,
 		TranslateModule.forRoot({

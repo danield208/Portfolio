@@ -7,7 +7,7 @@
 	right: $sidePadding_Desktop;
 	height: 60px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	color: white;
 	border-radius: 12px;
@@ -29,16 +29,8 @@
 	z-index: 9999;
 }
 
-.border,
 .main {
 	border-radius: 12px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.main {
 	width: calc(100% - 2px);
 	height: calc(100% - 2px);
 	background-color: $backgroundColor;
@@ -201,6 +193,10 @@ select {
 		nav {
 			flex-direction: column;
 			align-items: center;
+
+			span:hover {
+				cursor: pointer;
+			}
 		}
 	}
 }

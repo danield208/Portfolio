@@ -1,56 +1,65 @@
 import { TranslateService } from "@ngx-translate/core";
-import { Component, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { trigger, state, style, animate, transition } from "@angular/animations";
 
 @Component({
 	selector: "app-contact",
 	templateUrl: "./contact.component.html",
 	styleUrls: ["./contact.component.scss"],
+	animations: [
+		trigger("fadeInOut", [
+			transition(":enter", [style({ opacity: "0" }), animate("225ms", style({ opacity: "1" }))]),
+			transition(":leave", [style({ opacity: "1" }), animate("225ms", style({ opacity: "0" }))]),
+		]),
+	],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 	@ViewChild("contactform") contactform!: any;
 	@ViewChild("nameField") nameField!: any;
 	@ViewChild("mailField") mailField!: any;
 	@ViewChild("messageField") messageField!: any;
 	@ViewChild("formButton") formButton!: any;
+	form!: FormGroup;
+	validator: string = "VALID";
+	successWindow: boolean = false;
 
-	contactImg: Array<any> = [];
+	constructor(public translate: TranslateService) {}
 
-	constructor(public translate: TranslateService) {
-		this.getImages();
+	ngOnInit(): void {
+		this.form = new FormGroup({
+			name: new FormControl(null, Validators.required),
+			email: new FormControl(null, [
+				Validators.required,
+				Validators.pattern(
+					/(?:[a-z0-9+!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i
+				),
+			]),
+			message: new FormControl(null, Validators.required),
+		});
 	}
 
-	async getImages() {
-		await fetch("assets/data/imgSrcLinks.json")
-			.then((response) => response.json())
-			.then((json) => {
-				Object.entries(json).forEach((key) => {
-					this.contactImg.push(key[1]);
-				});
-			});
+	checkFormValidation(): boolean | void {
+		if (this.form.status === "VALID") return true;
+		else false;
 	}
 
 	async sendMail() {
-		console.log(this.contactform);
-		this.nameField.nativeElement.disabled = true;
-		this.mailField.nativeElement.disabled = true;
-		this.messageField.nativeElement.disabled = true;
-		this.formButton.nativeElement.disabled = true;
+		this.successWindow = true;
+		setTimeout(() => {
+			this.form.reset();
+		}, 1000);
+		setTimeout(() => {
+			this.successWindow = false;
+		}, 1500);
 
-		let formdata = new FormData();
-		formdata.append("name", this.nameField.value);
-		formdata.append("message", this.messageField.value);
+		let formData = new FormData();
+		formData.append("name", this.form.value.name + " " + this.form.value.email);
+		formData.append("message", this.form.value.message);
 
-		// send
-		await fetch("https://daniel-doerbaum.developerakademie.net/Portfolio/sendMail/send_mail.php", {
+		await fetch("https://danieldoerbaum.de/send_mail.php", {
 			method: "POST",
-			body: formdata,
+			body: formData,
 		});
-
-		this.nameField.nativeElement.disabled = false;
-		this.mailField.nativeElement.disabled = false;
-		this.messageField.nativeElement.disabled = false;
-		this.formButton.nativeElement.disabled = false;
-
-		this.nameField.value = "";
 	}
 }

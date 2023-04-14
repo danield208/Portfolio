@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, AfterViewInit, ViewChild, ElementRef, OnInit, OnDestroy } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { trigger, state, style, animate, transition } from "@angular/animations";
+import { Observable, Subscription, first, fromEvent } from "rxjs";
 
 @Component({
 	selector: "app-mainpage",
@@ -13,7 +14,7 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
 		]),
 	],
 })
-export class MainpageComponent implements AfterViewInit {
+export class MainpageComponent implements AfterViewInit, OnInit, OnDestroy {
 	title = "Portfolio";
 	header: boolean = true;
 	lastScroll: number = 0;
@@ -25,40 +26,51 @@ export class MainpageComponent implements AfterViewInit {
 	timeOuts: Array<any> = [];
 	headerArrow: boolean = false;
 	headerArrow_symbol: string = "&#8744;";
+	resizeObservable$!: Observable<Event>;
+	resizeSubscription$!: Subscription;
 
 	constructor(public translate: TranslateService) {}
 
+	ngOnInit(): void {
+		this.resizeObservable$ = fromEvent(window, "resize");
+		this.resizeSubscription$ = this.resizeObservable$.subscribe((evt: any) => {
+			this.root_DOM_Components_PositionY = [];
+			this.setRootChilds();
+		});
+	}
+
+	ngOnDestroy(): void {
+		this.resizeSubscription$.unsubscribe();
+	}
+
 	ngAfterViewInit(): void {
 		this.initHeaderAnimation();
-		this.setRootChilds();
-		document.addEventListener("resize", () => {
-			this.timeOuts.forEach((timout: number) => {
-				clearTimeout(timout);
-			});
-			this.timeOuts.push(
-				setTimeout(() => {
-					this.setRootChilds();
-				}, 100)
-			);
-		});
+		setTimeout(() => {
+			this.setRootChilds();
+		}, 200);
+	}
+
+	toggleMobileMenu(status: boolean) {
+		this.root_DOM_Components_PositionY = [];
+		if (status) this.setRootChilds();
 	}
 
 	setRootChilds() {
 		let components: Array<HTMLAllCollection> = Array.from(this.app_project.nativeElement.children);
 		components.forEach((child: any) => {
-			this.root_DOM_Components_PositionY.push(child.getBoundingClientRect().y + window.scrollY);
+			this.root_DOM_Components_PositionY.push(child.offsetTop);
 		});
 	}
 
 	initHeaderAnimation() {
 		window.addEventListener("scroll", () => {
-			this.firstInit++;
-			if (!this.scrollByFunction && this.firstInit > 1) {
+			if (!this.scrollByFunction && this.firstInit > 0) {
 				let currentScroll = window.scrollY;
 				if (this.isHeaderShwon(currentScroll)) this.hideHeader();
 				else if (this.isHeaderHidden(currentScroll)) this.showHeader();
 				this.lastScroll = window.pageYOffset;
 			}
+			this.firstInit = 1;
 		});
 	}
 

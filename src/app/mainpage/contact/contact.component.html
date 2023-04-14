@@ -1,22 +1,37 @@
-<h1 [innerText]="'contact.title.interest' | translate">###</h1>
-<div class="contactForm">
-    <form (submit)="sendMail()" ngNativeValidate #contactform>
-        <div class="cube input">
-            <div class="border"></div>
-            <input required name="name" [placeholder]="'contact.form.name' | translate" #nameField>
-        </div>
-        <div class="cube input">
-            <div class="border"></div>
-            <input required name="email" [placeholder]="'contact.form.mail' | translate" #mailField>
-        </div>
-        <div class="cube text">
-            <div class="borderTextarea"></div>
-            <textarea required name="message" [placeholder]="'contact.form.message' | translate"
-                #messageField></textarea>
-        </div>
-        <div class="cube buttom">
-            <div class="borderButton"></div>
-            <button #formButton [innerText]="'contact.button' | translate">Send</button>
-        </div>
-    </form>
-</div>
+<div class="line"></div>
+<div class="background"></div>
+<content>
+    <h1 [innerText]="'contact.title.interest' | translate">###</h1>
+    <div class="contactForm">
+        <form [formGroup]="form" (ngSubmit)="sendMail()">
+            <div class="cube input">
+                <div class="border"></div>
+                <input formControlName="name" [placeholder]="'contact.form.name' | translate">
+                <p
+                    *ngIf="form.controls['name'].touched && form.controls['name'].value == null || form.controls['name'].value == ''">
+                    {{"footer.form.name" | translate}}</p>
+            </div>
+            <div class="cube input">
+                <div class="border"></div>
+                <input formControlName="email" [placeholder]="'contact.form.mail' | translate">
+                <p *ngIf="!form.controls['email'].valid && form.controls['email'].dirty">{{"footer.form.email.1" |
+                    translate}}</p>
+                <p *ngIf="form.controls['email'].touched && !form.controls['email'].dirty">{{"footer.form.email.2" |
+                    translate}}</p>
+            </div>
+            <div class="cube text">
+                <div class="borderTextarea"></div>
+                <textarea formControlName="message" [placeholder]="'contact.form.message' | translate"></textarea>
+                <p *ngIf="form.controls['message'].touched && !form.controls['message'].dirty">{{"footer.form.message" |
+                    translate}}
+                </p>
+            </div>
+            <div class="cube buttom">
+                <div class="borderButton"></div>
+                <button type="submit" #formButton [disabled]="!checkFormValidation()">{{"contact.button" |
+                    translate}}</button>
+            </div>
+        </form>
+        <div class="success" @fadeInOut *ngIf="successWindow">{{"contact.mailsuccess" | translate}}</div>
+    </div>
+</content>

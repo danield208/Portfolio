@@ -2,7 +2,7 @@
 	"header": {
 		"skills": "Skills",
 		"projects": "Projekte",
-		"personal": "Person",
+		"personal": "Profil",
 		"contact": "Kontakt"
 	},
 
@@ -29,11 +29,20 @@
 			"mail": "E-Mail Adresse:",
 			"message": "Nachricht:"
 		},
-		"button": "Senden"
+		"button": "Senden",
+		"mailsuccess": "Mail erfolgreich versendet!"
 	},
 
 	"footer": {
 		"imprint": "Impressum",
-		"privacypolicy": "Datenschutzerklärung"
+		"privacypolicy": "Datenschutzerklärung",
+		"form": {
+			"name": "Bitte geben Sie Ihren namen ein",
+			"email": {
+				"1": "Keine gültige E-Mail",
+				"2": "Bitte geben Sie eine E-Mail an"
+			},
+			"message": "Schreiben Sie etwas für mich"
+		}
 	}
 }

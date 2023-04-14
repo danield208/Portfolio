@@ -15,8 +15,8 @@ content {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 150px;
-	height: 150px;
+	width: 130px;
+	height: 130px;
 
 	div {
 		position: absolute;
@@ -90,3 +90,15 @@ content {
 		opacity: 1;
 	}
 }
+
+// @media (max-width: 646px) {
+// 	:host {
+// 		justify-content: space-evenly;
+// 	}
+// }
+
+// @media (max-width: 487px) {
+// 	:host {
+// 		justify-content: space-evenly;
+// 	}
+// }

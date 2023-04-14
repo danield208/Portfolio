@@ -1,5 +1,5 @@
 <app-header *ngIf="header" @fadeInOut [componentPositions]="root_DOM_Components_PositionY"
-    (scrollByFunction)="setScrollByFunctionValue($event)">
+    (scrollByFunction)="setScrollByFunctionValue($event)" (openMobileMenu)="toggleMobileMenu($event)">
 </app-header>
 <div *ngIf="!header" @fadeInOut (click)="showHeader()" class="headerDownArrow" [innerHTML]="headerArrow_symbol">
 </div>

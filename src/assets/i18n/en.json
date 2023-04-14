@@ -2,7 +2,7 @@
 	"header": {
 		"skills": "Skills",
 		"projects": "Projects",
-		"personal": "Person",
+		"personal": "Profile",
 		"contact": "Contact"
 	},
 
@@ -22,18 +22,27 @@
 
 	"contact": {
 		"title": {
-			"interest": "Interestet in my person?"
+			"interest": "Interested in my person?"
 		},
 		"form": {
 			"name": "Name and Surname:",
 			"mail": "E-Mail adress:",
 			"message": "Message:"
 		},
-		"button": "Send"
+		"button": "Send",
+		"mailsuccess": "Mail send successfully sent!"
 	},
 
 	"footer": {
 		"imprint": "Imprint (DE)",
-		"privacypolicy": "Privacy Policy (DE)"
+		"privacypolicy": "Privacy Policy (DE)",
+		"form": {
+			"name": "Name is required",
+			"email": {
+				"1": "E-Mail adress invalid",
+				"2": "E-Mail adress is required"
+			},
+			"message": "Please write something for me"
+		}
 	}
 }

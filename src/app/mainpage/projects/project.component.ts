@@ -6,16 +6,18 @@ import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 	template: `
 		<main>
 			<h2>{{ projectData.Title }}</h2>
-			<img src="{{ projectData.ImgSrc }}" alt="projectImg" />
-			<content>
-				<span>{{ InfoText }}</span>
-				<span>{{ projectData.Particularities }}</span>
-			</content>
-			<div>
-				<nav>
-					<a [href]="">GitHub</a>
-					<a href="{{ projectData.SiteLink }}" target="_blank">WebSite</a>
-				</nav>
+			<div class="container">
+				<img src="{{ projectData.ImgSrc }}" alt="projectImg" />
+				<content>
+					<span>{{ InfoText }}</span>
+					<span>{{ projectData.Particularities }}</span>
+				</content>
+				<div>
+					<nav>
+						<a [href]="projectData.GithubLink" target="_blank">GitHub</a>
+						<a [href]="projectData.SiteLink" target="_blank">WebSite</a>
+					</nav>
+				</div>
 			</div>
 		</main>
 	`,

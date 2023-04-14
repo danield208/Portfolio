@@ -11,7 +11,7 @@ import {
 	OnDestroy,
 	HostBinding,
 } from "@angular/core";
-import { fromEvent, Observable, Subscription } from "rxjs";
+import { first, fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
 	selector: "app-header",
@@ -25,7 +25,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 	@ViewChild("buttonText") button!: ElementRef;
 	div_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	nav_DOM_SpanChilds: Array<HTMLSpanElement> = [];
-	languages: Array<string> = ["en", "de"];
 	@Input() componentPositions!: Array<number>;
 	@Output() scrollByFunction = new EventEmitter<boolean>();
 	currentPosition!: string;
@@ -33,33 +32,35 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 	timeouts: Array<any> = [];
 	showMobileNav: boolean = true;
 	components: Array<string> = ["start", "skills", "projects", "personal", "contact"];
-	windowWidth: number = 646;
+	windowMobileWidth: number = 646;
 	resizeObservable$!: Observable<Event>;
 	resizeSubscription$!: Subscription;
 	mobileView: boolean = false;
 	mobileNavOpen: boolean = true;
 	translateObserv$: any;
 	openMobileNav: boolean = true;
+	projectBreak: number = 1310;
+	@Output() openMobileMenu = new EventEmitter<boolean>();
 	@HostBinding("class.mobileOpen") host: boolean = false;
 
 	constructor(public translate: TranslateService) {
-		this.translateObserv$ = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-			localStorage.setItem("page_language", event.lang);
-		});
-		if (window.innerWidth <= this.windowWidth) {
+		if (window.innerWidth <= this.windowMobileWidth) {
 			this.mobileView = true;
 			this.openMobileNav = this.mobileView;
 		} else {
 			this.mobileView = false;
 			this.openMobileNav = this.mobileView;
 		}
-		this.downloadLangJSONs();
 	}
 
 	ngOnInit(): void {
+		this.translateObserv$ = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+			localStorage.setItem("page_language", event.lang);
+		});
+
 		this.resizeObservable$ = fromEvent(window, "resize");
 		this.resizeSubscription$ = this.resizeObservable$.subscribe((evt: any) => {
-			if (window.innerWidth <= this.windowWidth) {
+			if (window.innerWidth <= this.windowMobileWidth) {
 				this.mobileView = true;
 				this.openMobileNav = this.mobileView;
 			} else {
@@ -85,14 +86,9 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 		else this.button.nativeElement.innerText = "Open";
 
 		setTimeout(() => {
+			this.openMobileMenu.emit(true);
 			this.ngAfterViewInit();
 		}, 20);
-	}
-
-	downloadLangJSONs() {
-		this.languages.forEach((lang) => {
-			this.translate.getTranslation(lang);
-		});
 	}
 
 	ngAfterViewInit(): void {
@@ -118,17 +114,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 		this.addEventListeners();
 	}
 
-	ifLocalStorage_init() {
-		if (this.checkForLocalStorageItem()) {
-			let localStorage_Language: string = String(localStorage.getItem("page_language"));
-			this.setLanguage(localStorage_Language);
-		} else this.setLanguagePicker_style(this.translate.defaultLang);
-	}
-
-	checkForLocalStorageItem() {
-		return localStorage.getItem("page_language");
-	}
-
 	addEventListeners() {
 		window.addEventListener("scroll", () => {
 			this.components.forEach((component: string) => {
@@ -138,18 +123,21 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 				}
 			});
 		});
-		if (!this.mobileView) {
-			this.components.forEach((component: string) => {
-				if (this.checkComponentCollision(component)) {
-					this.currentPosition = component;
-					this.setNavStile();
-				}
-			});
+		if (!this.mobileView || !this.openMobileNav) {
+			setTimeout(() => {
+				this.components.forEach((component: string) => {
+					if (this.checkComponentCollision(component)) {
+						this.currentPosition = component;
+						this.setNavStile();
+					}
+				});
+			}, 300);
 		}
 	}
 
 	checkComponentCollision(component: string): any {
-		let headerIfStatements: Array<Boolean> = [
+		let headerIfStatements: Array<Boolean>;
+		headerIfStatements = [
 			(window.scrollY >= 0 || window.scrollY >= this.pageOffset) &&
 				window.scrollY <= window.innerHeight - this.pageOffset,
 			window.scrollY >= this.componentPositions[1] - this.pageOffset &&
@@ -158,11 +146,18 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 				window.scrollY <= this.componentPositions[3] - this.pageOffset,
 			window.scrollY >= this.componentPositions[3] - this.pageOffset &&
 				window.scrollY <= this.componentPositions[4] - this.pageOffset,
-			window.scrollY >= this.componentPositions[4] - this.pageOffset && window.scrollY <= window.innerHeight * 5,
+			window.scrollY >= this.componentPositions[4] - this.pageOffset &&
+				window.scrollY <= this.componentPositions[4] + this.componentPositions[4] - window.scrollY,
 		];
+
 		for (let index = 0; index < this.components.length; index++) {
 			if (headerIfStatements[index] && this.components[index] == component) return true;
 		}
+	}
+
+	checkMobileWidth(): boolean | void {
+		if (window.innerWidth <= 646) return true;
+		else return false;
 	}
 
 	setNavStile() {
@@ -179,7 +174,18 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 		this.setLanguage(language);
 	}
 
-	async setLanguage(language: string) {
+	ifLocalStorage_init() {
+		if (this.checkForLocalStorageItem()) {
+			let localStorage_Language: string = String(localStorage.getItem("page_language"));
+			this.setLanguage(localStorage_Language);
+		} else this.setLanguagePicker_style(this.translate.defaultLang);
+	}
+
+	checkForLocalStorageItem() {
+		return localStorage.getItem("page_language");
+	}
+
+	setLanguage(language: string) {
 		this.translate.use(language);
 		this.setLanguagePicker_style(language);
 	}
@@ -198,31 +204,31 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 		switch (position) {
 			case "start":
 				this.scrollByFuntionStatus();
-				document
-					.querySelector("app-welcome")
-					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				window.scrollTo({ top: 0, behavior: "smooth" });
 				break;
 			case "skills":
 				this.scrollByFuntionStatus();
-				document.querySelector("app-skills")?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				if (this.projectBreak >= window.innerWidth)
+					window.scrollTo({ top: this.componentPositions[1], behavior: "smooth" });
+				else window.scrollTo({ top: this.componentPositions[1] - 200, behavior: "smooth" });
+
 				break;
 			case "projects":
 				this.scrollByFuntionStatus();
-				document
-					.querySelector("app-projects")
-					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				if (this.projectBreak >= window.innerWidth)
+					window.scrollTo({ top: this.componentPositions[2] - 100, behavior: "smooth" });
+				else window.scrollTo({ top: this.componentPositions[2], behavior: "smooth" });
+
 				break;
 			case "personal":
 				this.scrollByFuntionStatus();
-				document
-					.querySelector("app-personal-info")
-					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				if (this.projectBreak >= window.innerWidth)
+					window.scrollTo({ top: this.componentPositions[3] - 100, behavior: "smooth" });
+				else window.scrollTo({ top: this.componentPositions[3], behavior: "smooth" });
 				break;
 			case "contact":
 				this.scrollByFuntionStatus();
-				document
-					.querySelector("app-contact")
-					?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+				window.scrollTo({ top: this.componentPositions[4] - 4, behavior: "smooth" });
 				break;
 		}
 	}
