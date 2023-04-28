@@ -3,7 +3,7 @@
 :host {
 	display: flex;
 	flex-direction: column;
-	align-items: start;
+	align-items: flex-start;
 	justify-content: center;
 	min-height: 100vh;
 	width: 100%;
@@ -112,9 +112,52 @@ p {
 	left: 47px;
 }
 
+.cvButton {
+	margin-top: 32px;
+	display: flex;
+	width: fit-content;
+	height: fit-content;
+	border-style: unset;
+	border-radius: 12px;
+	align-self: center;
+	padding: 1px;
+	background-image: linear-gradient(
+		to right bottom,
+		#bc13fe,
+		#ca27fe,
+		#d636fe,
+		#e244fe,
+		#ed51fe,
+		#c076ff,
+		#978dff,
+		#799bff,
+		#22abf9,
+		#00b4e4,
+		#21b9c9,
+		#5ebab0
+	);
+
+	span {
+		padding: 4px 28px;
+		font-size: 2.8rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 12px;
+		background-color: $backgroundColor;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgb(34, 34, 34);
+		}
+	}
+}
+
 @media (max-width: $maxWidth_Mobile) {
 	content {
-		align-items: start;
+		align-items: flex-start;
 		flex-direction: column-reverse;
 	}
 }

@@ -6,7 +6,7 @@ import { TranslateService } from "@ngx-translate/core";
 	template: `
 		<div class="main">
 			<nav>
-				<a href="">Indeed</a>
+				<a href="">LinkedIn</a>
 				<a href="https://github.com/danield208" target="_blank">GitHub</a>
 			</nav>
 			<div class="separator"></div>

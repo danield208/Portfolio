@@ -6,6 +6,9 @@
 		"contact": "Contact"
 	},
 
+	"Open": "Open",
+	"Close": "Close",
+
 	"startpage": {
 		"greeting": "Welcome to my portfolio",
 		"profile": "My name is Daniel Dörbaum, 24 years old and junior frontend webdeveloper. Here you will learn more about me - wich skills I posess, on wich projects I work und how you can contact me."
