@@ -17,7 +17,7 @@ export class PersonalInfoComponent {
 		this.getPersonalData();
 	}
 
-	async getPersonalData() {
+	async getPersonalData() : Promise<void> {
 		await fetch("assets/data/personal.json")
 			.then((response) => response.json())
 			.then((json) => {
@@ -28,9 +28,9 @@ export class PersonalInfoComponent {
 		this.arrayLenght = this.personalData.length;
 	}
 
-	showCV(url: string) {
+	showCV(url: string): void {
 		this.data.downloadPDF(url).subscribe(res => {
-			const fileURL = URL.createObjectURL(res);
+			const fileURL: string = URL.createObjectURL(res);
 			window.open(fileURL, '_blank');
 		});
 	}
