@@ -26,6 +26,7 @@ content {
 	img {
 		width: 328px;
 		height: 328px;
+		margin-left: 24px;
 	}
 }
 
@@ -73,6 +74,10 @@ content {
 		div {
 			position: absolute;
 			top: 95px;
+		}
+
+		img {
+			margin-left: 0;
 		}
 	}
 
