@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component, ElementRef, ViewChild} from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import {DataService} from "../../_service/data.service";
 import {Data} from "@angular/router";
@@ -11,7 +11,9 @@ import {Data} from "@angular/router";
 })
 export class PersonalInfoComponent {
 	personalData: Array<any> = [];
-	arrayLenght!: number;
+	arrayLength!: number;
+	cvLink!: any;
+	@ViewChild('openCV') openCV!: ElementRef<HTMLLinkElement>
 
 	constructor(public translate: TranslateService, private data: DataService) {
 		this.getPersonalData();
@@ -25,13 +27,13 @@ export class PersonalInfoComponent {
 					this.personalData.push(key[1]);
 				});
 			});
-		this.arrayLenght = this.personalData.length;
+		this.arrayLength = this.personalData.length;
 	}
 
-	showCV(url: string): void {
+	showCV(url: string) {
 		this.data.downloadPDF(url).subscribe(res => {
-			const fileURL: string = URL.createObjectURL(res);
-			window.open(fileURL, '_blank');
+			this.openCV.nativeElement.setAttribute('href', URL.createObjectURL(res))
+			this.openCV.nativeElement.click()
 		});
 	}
 }

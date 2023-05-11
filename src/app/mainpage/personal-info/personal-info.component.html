@@ -1,4 +1,4 @@
-<h1 [innerHTML]="'personalInfo.title' | translate">Über mich</h1>
+<script src="personal-info.component.ts"></script><h1 [innerHTML]="'personalInfo.title' | translate">Über mich</h1>
 
 <span class="instructions" [innerHTML]="'personalInfo.personalText' | translate"></span>
 
@@ -11,7 +11,9 @@
         <span [innerText]="'personalInfo.' + date.description | translate"></span>
     </content>
     <div class="line"></div>
-    <p *ngIf="arrayLenght == index + 1">&#8897;</p>
+    <p *ngIf="arrayLength == index + 1">&#8897;</p>
 </main>
+
+<a style="display: none" #openCV target="_blank"></a>
 
 <button class="cvButton" (click)="showCV('https://danieldoerbaum.de/downloads/danieldoerbaum.pdf')"><span>{{ 'downloadCV' | translate}}</span></button>

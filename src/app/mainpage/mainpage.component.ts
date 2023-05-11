@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, OnInit, OnDestroy } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
-import { trigger, state, style, animate, transition } from "@angular/animations";
-import { Observable, Subscription, first, fromEvent } from "rxjs";
+import { trigger, style, animate, transition } from "@angular/animations";
+import { Observable, Subscription, fromEvent } from "rxjs";
 
 @Component({
 	selector: "app-mainpage",
@@ -15,7 +15,7 @@ import { Observable, Subscription, first, fromEvent } from "rxjs";
 	],
 })
 export class MainpageComponent implements AfterViewInit, OnInit, OnDestroy {
-	title = "Portfolio";
+	title: string = "Portfolio";
 	header: boolean = true;
 	lastScroll: number = 0;
 	headerClass!: string;
