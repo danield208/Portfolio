@@ -31,7 +31,7 @@ export class PersonalInfoComponent {
 	}
 
 	showCV(url: string) {
-		this.data.downloadPDF(url).subscribe(res => {
+		this.data.downloadPDF(url).subscribe(res  => {
 			this.openCV.nativeElement.setAttribute('href', URL.createObjectURL(res))
 			this.openCV.nativeElement.click()
 		});

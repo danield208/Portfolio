@@ -7,6 +7,7 @@
 	justify-content: center;
 	min-height: 100vh;
 	width: 100%;
+	padding: 34px 0;
 
 	gap: 30px;
 }
@@ -44,21 +45,7 @@ content {
 		width: 16px;
 		border-radius: 100%;
 		margin-right: 16px;
-		background-image: linear-gradient(
-			to right bottom,
-			#bc13fe,
-			#ca27fe,
-			#d636fe,
-			#e244fe,
-			#ed51fe,
-			#c076ff,
-			#978dff,
-			#799bff,
-			#22abf9,
-			#00b4e4,
-			#21b9c9,
-			#5ebab0
-		);
+		background-image: $backgroundColorGradient;
 	}
 }
 
@@ -66,21 +53,7 @@ content {
 	width: 2px;
 	height: 40px;
 	border-radius: 1px;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 	margin: 0 7px;
 	position: relative;
 	left: 48px;
@@ -89,21 +62,7 @@ content {
 p {
 	width: 20px;
 	font-size: 20px;
-	background-image: linear-gradient(
-		to right top,
-		#d16ba5,
-		#c777b9,
-		#ba83ca,
-		#aa8fd8,
-		#9a9ae1,
-		#8aa7ec,
-		#79b3f4,
-		#69bff8,
-		#52cffe,
-		#41dfff,
-		#46eefa,
-		#5ffbf1
-	);
+	background-image: $backgroundColorGradient;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-weight: bold;
@@ -121,21 +80,7 @@ p {
 	border-radius: 12px;
 	align-self: center;
 	padding: 1px;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 
 	span {
 		padding: 4px 28px;
@@ -150,12 +95,12 @@ p {
 		cursor: pointer;
 
 		&:hover {
-			background-color: rgb(34, 34, 34);
+			background-color: $backgroundColor2;
 		}
 	}
 }
 
-@media (max-width: $maxWidth_Mobile) {
+@media (max-width: $maxWidth_Mobile_600) {
 	content {
 		align-items: flex-start;
 		flex-direction: column-reverse;

@@ -7,36 +7,6 @@
 	align-items: center;
 }
 
-.line {
-	position: absolute;
-	width: 100dvw;
-	height: 4px;
-	top: -3px;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
-	filter: blur(4px);
-}
-
-.background {
-	height: 100%;
-	width: 100dvw;
-	position: absolute;
-	background-color: rgb(30, 30, 30);
-}
-
 content {
 	width: 100%;
 	min-height: 100dvh;
@@ -53,11 +23,44 @@ content {
 	}
 }
 
+.info {
+	color: white;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+	margin-top: 18px;
+
+	p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-image: $backgroundColorGradient;
+		border-radius: 12px;
+
+		a {
+			text-decoration: none;
+			color: #ffffff;
+			background-color: $backgroundColor;
+			margin: 1px;
+			padding: 6px 12px;
+			border-radius: 12px;
+			transition: all 225ms ease-in-out;
+			font-size: 1.08rem;
+
+			&:hover {
+				cursor: pointer;
+				background-color: $backgroundColor2;
+			}
+		}
+	}
+}
+
 .contactForm {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	align-items: center;
 	width: 70%;
 
@@ -82,7 +85,7 @@ content {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: rgb(30, 30, 30);
+	background-color: $backgroundColor2;
 	font-size: 2rem;
 }
 
@@ -101,7 +104,7 @@ content {
 		height: 150px;
 	}
 
-	&.buttom {
+	&.button {
 		height: 3rem;
 	}
 
@@ -143,7 +146,7 @@ content {
 		cursor: pointer;
 
 		&:hover {
-			background-color: rgb(34, 34, 34);
+			background-color: $backgroundColor2;
 		}
 
 		&:disabled {
@@ -156,21 +159,7 @@ content {
 
 .border {
 	position: absolute;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 	height: 4rem;
 	width: 100%;
 }
@@ -180,21 +169,7 @@ content {
 	border-radius: 8px;
 	height: 150px;
 	width: 100%;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 }
 
 .borderButton {
@@ -202,33 +177,27 @@ content {
 	width: 8rem;
 	border-radius: 8px;
 	height: 3rem;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 }
 
-@media (max-width: $maxWidth_Mobile) {
+@media (max-width: $maxWidth_Mobile_1000) {
+	content {
+		h1 {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (max-width: $maxWidth_Mobile_600) {
 	.contactForm {
 		width: 100%;
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: $maxWidth_Mobile_500) {
 	content {
 		h1 {
-			font-size: 2.5rem;
+			font-size: 1.5rem;
 		}
 	}
 }

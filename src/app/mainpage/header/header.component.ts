@@ -63,6 +63,9 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 			if (window.innerWidth <= this.windowMobileWidth) {
 				this.mobileView = true;
 				this.openMobileNav = this.mobileView;
+				if (this.openMobileNav && this.host) {
+					this.toggleMenu()
+				}
 			} else {
 				this.mobileView = false;
 				this.openMobileNav = this.mobileView;

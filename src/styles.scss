@@ -37,3 +37,37 @@ html {
 		display: none;
 	}
 }
+
+.backgroundLight {
+	height: 100%;
+	width: 100dvw;
+	position: absolute;
+	background-color: $backgroundColor2;
+	z-index: -1;
+	-webkit-transform: translate3d(0,0,-1px);
+	transform: translate3d(0,0,-1px);
+}
+
+.line {
+	position: absolute;
+	width: 100dvw;
+	height: 4px;
+	top: -3px;
+	background-image: $backgroundColorGradient;
+	filter: blur(4px);
+	z-index: 1;
+	-webkit-transform: translate3d(0,0,-1px);
+	transform: translate3d(0,0,-1px);
+}
+
+.lineBottom {
+	position: absolute;
+	width: 100dvw;
+	height: 4px;
+	bottom: -3px;
+	background-image: $backgroundColorGradient;
+	filter: blur(4px);
+	z-index: 1;
+	-webkit-transform: translate3d(0,0,-1px);
+	transform: translate3d(0,0,-1px);
+}

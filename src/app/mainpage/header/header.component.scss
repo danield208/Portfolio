@@ -11,21 +11,7 @@
 	align-items: center;
 	color: white;
 	border-radius: 12px;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 	z-index: 9999;
 }
 
@@ -51,21 +37,7 @@
 		align-items: center;
 		width: 5rem;
 		height: 2.5rem;
-		background-image: linear-gradient(
-			to right bottom,
-			#bc13fe,
-			#ca27fe,
-			#d636fe,
-			#e244fe,
-			#ed51fe,
-			#c076ff,
-			#978dff,
-			#799bff,
-			#22abf9,
-			#00b4e4,
-			#21b9c9,
-			#5ebab0
-		);
+		background-image: $backgroundColorGradient;
 		border-radius: 12px;
 		border-style: none;
 		cursor: pointer;
@@ -105,21 +77,7 @@ nav {
 		}
 
 		&.position {
-			background-image: linear-gradient(
-				to right,
-				#bc13fe,
-				#ca27fe,
-				#d636fe,
-				#e244fe,
-				#ed51fe,
-				#c076ff,
-				#978dff,
-				#799bff,
-				#22abf9,
-				#00b4e4,
-				#21b9c9,
-				#5ebab0
-			);
+			background-image: $backgroundColorGradient;
 			background-repeat: no-repeat;
 			background-position: bottom;
 			background-size: 100% 1px;
@@ -139,21 +97,7 @@ nav {
 
 			&.active {
 				color: white;
-				background-image: linear-gradient(
-					to right,
-					#bc13fe,
-					#ca27fe,
-					#d636fe,
-					#e244fe,
-					#ed51fe,
-					#c076ff,
-					#978dff,
-					#799bff,
-					#22abf9,
-					#00b4e4,
-					#21b9c9,
-					#5ebab0
-				);
+				background-image: $backgroundColorGradient;
 				background-repeat: no-repeat;
 				background-position: bottom;
 				background-size: 100% 1px;

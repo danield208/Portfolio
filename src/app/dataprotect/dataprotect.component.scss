@@ -7,21 +7,7 @@
 	align-items: center;
 	padding: 1px 0;
 	border-radius: 12px;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 }
 
 button {
@@ -36,21 +22,7 @@ button {
 	justify-content: center;
 	align-items: center;
 	border-radius: 12px;
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 	border: none;
 
 	p {
@@ -64,7 +36,7 @@ button {
 		cursor: pointer;
 
 		&:hover {
-			background-color: rgb(33, 33, 33);
+			background-color: $backgroundColor2;
 		}
 	}
 }

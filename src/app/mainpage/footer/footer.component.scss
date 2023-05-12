@@ -8,21 +8,7 @@
 	width: calc(100dvw - 1px);
 	height: 120px;
 
-	background-image: linear-gradient(
-		to right bottom,
-		#bc13fe,
-		#ca27fe,
-		#d636fe,
-		#e244fe,
-		#ed51fe,
-		#c076ff,
-		#978dff,
-		#799bff,
-		#22abf9,
-		#00b4e4,
-		#21b9c9,
-		#5ebab0
-	);
+	background-image: $backgroundColorGradient;
 }
 
 :host,

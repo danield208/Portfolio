@@ -1,7 +1,15 @@
+<link rel="stylesheet" href="contact.component.scss">
 <div class="line"></div>
-<div class="background"></div>
+<div class="backgroundLight"></div>
 <content>
-    <h1 [innerText]="'contact.title.interest' | translate">###</h1>
+    <h1>{{ 'contact.title.interest' | translate }}</h1>
+    <div class="info">
+        <h2>{{ "contact.title.mail" | translate }}</h2>
+        <p>
+            <a href="mailto:daniel.doerbaum@icloud.com?subject=Feedback&body=Message">daniel.doerbaum@icloud.com</a>
+        </p>
+        <h2>{{ "contact.title.form" | translate }}</h2>
+    </div>
     <div class="contactForm">
         <form [formGroup]="form" (ngSubmit)="sendMail()">
             <div class="cube input">
@@ -26,12 +34,12 @@
                     translate}}
                 </p>
             </div>
-            <div class="cube buttom">
+            <div class="cube button">
                 <div class="borderButton"></div>
-                <button type="submit" #formButton [disabled]="!checkFormValidation()">{{"contact.button" |
-                    translate}}</button>
+                <button type="submit" #formButton [disabled]="!checkFormValidation()">{{ "contact.button" |
+                    translate }}</button>
             </div>
         </form>
-        <div class="success" @fadeInOut *ngIf="successWindow">{{"contact.mailsuccess" | translate}}</div>
+        <div class="success" @fadeInOut *ngIf="successWindow">{{ "contact.mailsuccess" | translate }}</div>
     </div>
 </content>

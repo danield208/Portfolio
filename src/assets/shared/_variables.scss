@@ -3,8 +3,26 @@ $sidePadding_Mobile: 20px;
 $scrollbarWidth: 17px;
 
 $backgroundColor: rgb(22, 22, 22);
+$backgroundColor2: rgb(33, 33, 33);
+$backgroundColorGradient: linear-gradient(
+                to right bottom,
+                #bc13fe,
+                #ca27fe,
+                #d636fe,
+                #e244fe,
+                #ed51fe,
+                #c076ff,
+                #978dff,
+                #799bff,
+                #22abf9,
+                #00b4e4,
+                #21b9c9,
+                #5ebab0
+);
 
-$maxWidth_Mobile: 524px;
+$maxWidth_Mobile_500: 500px;
+$maxWidth_Mobile_600: 600px;
+$maxWidth_Mobile_1000: 1000px;
 
-$ComponentBgColorDOWN: linear-gradient(to bottom, #163535, #162830, #181b23, #131014, #111010);
-$ComponentBgColorUP: linear-gradient(to top, #163535, #162830, #181b23, #131014, #111010);
+
+

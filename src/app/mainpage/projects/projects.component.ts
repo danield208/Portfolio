@@ -4,10 +4,13 @@ import { Component } from "@angular/core";
 @Component({
 	selector: "app-projects",
 	template: `
+		<div class="line"></div>
+		<div class="backgroundLight"></div>
 		<h1 [innerHTML]="'projectTitle' | translate">###</h1>
 		<main>
 			<app-project *ngFor="let project of projects" [projectData]="project"></app-project>
 		</main>
+		<div class="lineBottom"></div>
 	`,
 	styleUrls: ["./projects.component.scss"],
 })

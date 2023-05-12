@@ -27,7 +27,9 @@
 
 	"contact": {
 		"title": {
-			"interest": "An meiner Person interessiert?"
+			"interest": "An meiner Person interessiert?",
+			"mail": "Kontaktiere mich per Mail:",
+			"form": "oder direkt über das untere Formular:"
 		},
 		"form": {
 			"name": "Name und Nachnahme:",
