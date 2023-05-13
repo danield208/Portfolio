@@ -1,9 +1,12 @@
 <content>
-    <div>
-        <h1 [innerHTML]="'startpage.greeting' | translate">###</h1>
-        <span [innerHTML]="'startpage.profile' | translate">###</span>
-    </div>
-    <img src="./assets/images/me.png" alt="profilbild" />
+    <main>
+        <div>
+            <h1 [innerHTML]="'startpage.greeting' | translate">###</h1>
+            <span [innerHTML]="'startpage.profile' | translate">###</span>
+        </div>
+        <img src="./assets/images/me.png"/>
+    </main>e
+    <div class="lineWelcome"></div>
 </content>
 
-<div class="lineWelcome"></div>
+<app-skills></app-skills>

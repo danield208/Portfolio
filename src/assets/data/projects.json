@@ -1,4 +1,15 @@
 {
+	"portfolio": {
+		"Title": "Portfolio",
+		"ImgSrc": "./assets/images/projects/portfolio.png",
+		"InfoText": {
+			"de": "Mein Portfolio, um mich vorzustellen.",
+			"en": "My Portfolio to introduce myself."
+		},
+		"Particularities": "Angular",
+		"SiteLink": "http://danieldoerbaum.de",
+		"GithubLink": "https://github.com/danield208/Portfolio"
+	},
 	"elpolloloco": {
 		"Title": "ElPolloLoco",
 		"ImgSrc": "./assets/images/projects/elpolloloco.png",

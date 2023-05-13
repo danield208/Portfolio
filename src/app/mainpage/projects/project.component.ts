@@ -34,7 +34,9 @@ export class ProjectComponent implements OnInit {
 		this.observeLangChange = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
 			this.checkLang(event.lang);
 		});
-		this.checkLang(this.translate.currentLang);
+		setTimeout(()=>{
+			this.checkLang(this.translate.currentLang);
+		}, 200)
 	}
 
 	checkLang(currentLang: string) {

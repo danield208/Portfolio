@@ -58,7 +58,7 @@ export class MainpageComponent implements AfterViewInit, OnInit, OnDestroy {
 	setRootChilds() {
 		let components: Array<HTMLAllCollection> = Array.from(this.app_project.nativeElement.children);
 		components.forEach((child: any) => {
-			this.root_DOM_Components_PositionY.push(child.offsetTop);
+			if (child.localName != "app-skills") this.root_DOM_Components_PositionY.push(child.offsetTop);
 		});
 	}
 

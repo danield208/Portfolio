@@ -4,7 +4,7 @@
 	width: 100%;
 	padding: 150px 0;
 	padding-bottom: 0;
-
+	min-height: 100dvh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -15,32 +15,40 @@ content {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
+	flex-direction: column;
 
-	h1 {
-		font-size: 3rem;
+	main {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+
+		h1 {
+			font-size: 3rem;
+		}
+
+		span {
+			font-size: 1.5rem;
+		}
+
+		img {
+			width: 328px;
+			height: 328px;
+			margin-left: 24px;
+		}
 	}
 
-	span {
-		font-size: 1.5rem;
-	}
-
-	img {
-		width: 328px;
-		height: 328px;
-		margin-left: 24px;
+	.lineWelcome {
+		filter: blur(1px);
+		width: 100%;
+		height: 2px;
+		background-image: $backgroundColorGradient;
 	}
 }
 
-.lineWelcome {
-	filter: blur(1px);
-	width: 100%;
-	height: 2px;
-	background-image: $backgroundColorGradient;
-}
+
 
 @media (max-width: 1092px) {
 	:host {
-		height: 100dvh;
 		padding: 0;
 		justify-content: flex-end;
 	}
@@ -54,17 +62,14 @@ content {
 		align-items: center;
 		justify-content: flex-end;
 
-		h1 {
-			margin-bottom: 8px;
-		}
-
-		div {
-			position: absolute;
-			top: 95px;
-		}
-
-		img {
-			margin-left: 0;
+		main {
+			margin-top: 93px;
+			flex-direction: column;
+			align-items: center;
+				img {
+					margin-left: 0;
+					margin-top: 24px;
+				}
 		}
 	}
 
@@ -74,7 +79,6 @@ content {
 }
 
 @media (min-width: 400px) and (max-height: 820px) {
-	content {
 		h1 {
 			font-size: 1.8rem;
 		}
@@ -82,11 +86,9 @@ content {
 		span {
 			font-size: 1.3rem;
 		}
-	}
 }
 
 @media (max-width: 400px) and (max-height: 820px) {
-	content {
 		h1 {
 			font-size: 1.8rem;
 		}
@@ -94,11 +96,9 @@ content {
 		span {
 			font-size: 1.3rem;
 		}
-	}
 }
 
 @media (max-width: 390px) {
-	content {
 		h1 {
 			font-size: 1.8rem;
 		}
@@ -106,5 +106,4 @@ content {
 		span {
 			font-size: 1.3rem;
 		}
-	}
 }

@@ -31,7 +31,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 	pageOffset: number = 300;
 	timeouts: Array<any> = [];
 	showMobileNav: boolean = true;
-	components: Array<string> = ["start", "skills", "projects", "personal", "contact"];
+	components: Array<string> = ["start", "projects", "personal", "contact"];
 	windowMobileWidth: number = 646;
 	resizeObservable$!: Observable<Event>;
 	resizeSubscription$!: Subscription;
@@ -140,19 +140,21 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	checkComponentCollision(component: string): any {
 		let headerIfStatements: Array<Boolean>;
-		headerIfStatements = [
-			(window.scrollY >= 0 || window.scrollY >= this.pageOffset) &&
-				window.scrollY <= window.innerHeight - this.pageOffset,
-			window.scrollY >= this.componentPositions[1] - this.pageOffset &&
-				window.scrollY <= this.componentPositions[2] - this.pageOffset,
-			window.scrollY >= this.componentPositions[2] - this.pageOffset &&
-				window.scrollY <= this.componentPositions[3] - this.pageOffset,
-			window.scrollY >= this.componentPositions[3] - this.pageOffset &&
-				window.scrollY <= this.componentPositions[4] - this.pageOffset,
-			window.scrollY >= this.componentPositions[4] - this.pageOffset &&
-				window.scrollY <= this.componentPositions[4] + this.componentPositions[4] - window.scrollY,
-		];
-
+		if (this.projectBreak >= window.innerWidth) {
+			headerIfStatements = [
+				window.scrollY >= this.componentPositions[0] && window.scrollY + 80 < this.componentPositions[1],
+				window.scrollY + 120 > this.componentPositions[1] && window.scrollY + 80 < this.componentPositions[2],
+				window.scrollY + 120 > this.componentPositions[2] && window.scrollY + 80 < this.componentPositions[3],
+				window.scrollY + 120 > this.componentPositions[3] && window.scrollY < this.componentPositions[3] + this.componentPositions[3]
+			];
+		} else {
+			headerIfStatements = [
+				window.scrollY >= this.componentPositions[0] && window.scrollY + 80 < this.componentPositions[1],
+				window.scrollY + 80 > this.componentPositions[1] && window.scrollY + 80 < this.componentPositions[2],
+				window.scrollY + 80 > this.componentPositions[2] && window.scrollY + 80 < this.componentPositions[3],
+				window.scrollY + 80 > this.componentPositions[3] && window.scrollY < this.componentPositions[3] + this.componentPositions[3]
+			];
+		}
 		for (let index = 0; index < this.components.length; index++) {
 			if (headerIfStatements[index] && this.components[index] == component) return true;
 		}
@@ -209,29 +211,24 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 				this.scrollByFuntionStatus();
 				window.scrollTo({ top: 0, behavior: "smooth" });
 				break;
-			case "skills":
-				this.scrollByFuntionStatus();
-				if (this.projectBreak >= window.innerWidth)
-					window.scrollTo({ top: this.componentPositions[1], behavior: "smooth" });
-				else window.scrollTo({ top: this.componentPositions[1] - 200, behavior: "smooth" });
-
-				break;
 			case "projects":
 				this.scrollByFuntionStatus();
 				if (this.projectBreak >= window.innerWidth)
-					window.scrollTo({ top: this.componentPositions[2] - 100, behavior: "smooth" });
-				else window.scrollTo({ top: this.componentPositions[2], behavior: "smooth" });
+					window.scrollTo({ top: this.componentPositions[1] - 100, behavior: "smooth" });
+				else window.scrollTo({ top: this.componentPositions[1], behavior: "smooth" });
 
 				break;
 			case "personal":
 				this.scrollByFuntionStatus();
 				if (this.projectBreak >= window.innerWidth)
-					window.scrollTo({ top: this.componentPositions[3] - 100, behavior: "smooth" });
-				else window.scrollTo({ top: this.componentPositions[3], behavior: "smooth" });
+					window.scrollTo({ top: this.componentPositions[2] - 100, behavior: "smooth" });
+				else window.scrollTo({ top: this.componentPositions[2], behavior: "smooth" });
 				break;
 			case "contact":
 				this.scrollByFuntionStatus();
-				window.scrollTo({ top: this.componentPositions[4] - 4, behavior: "smooth" });
+				if (this.projectBreak >= window.innerWidth)
+					window.scrollTo({ top: this.componentPositions[3] - 100, behavior: "smooth" });
+				else window.scrollTo({ top: this.componentPositions[3] - 4, behavior: "smooth" });
 				break;
 		}
 	}
