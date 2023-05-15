@@ -1,4 +1,15 @@
 {
+	"join": {
+		"Title": "Join",
+		"ImgSrc": "./assets/images/projects/join.png",
+		"InfoText": {
+			"de": "Eine Webanwendung zum Verwalten von Teamaufgaben.",
+			"en": "Webapp to manage teamtasks."
+		},
+		"Particularities": "Angular",
+		"SiteLink": "https://join.danieldoerbaum.de",
+		"GithubLink": "https://github.com/danield208/join"
+	},
 	"portfolio": {
 		"Title": "Portfolio",
 		"ImgSrc": "./assets/images/projects/portfolio.png",
@@ -7,7 +18,7 @@
 			"en": "My Portfolio to introduce myself."
 		},
 		"Particularities": "Angular",
-		"SiteLink": "http://danieldoerbaum.de",
+		"SiteLink": "https://danieldoerbaum.de",
 		"GithubLink": "https://github.com/danield208/Portfolio"
 	},
 	"elpolloloco": {
@@ -18,7 +29,7 @@
 			"en": "A small game with the vanilla programming setup."
 		},
 		"Particularities": "JavaScript, HTML, CSS",
-		"SiteLink": "http://elpolloloco.danieldoerbaum.de",
+		"SiteLink": "https://elpolloloco.danieldoerbaum.de",
 		"GithubLink": "https://github.com/danield208/ElPolloLoco"
 	}
 }

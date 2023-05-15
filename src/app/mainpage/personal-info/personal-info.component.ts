@@ -13,17 +13,14 @@ export class PersonalInfoComponent {
 	arrayLength!: number;
 	@ViewChild('openCV') openCV!: ElementRef<HTMLLinkElement>
 	isSafari =
-		navigator.vendor &&
-		navigator.vendor.indexOf('Apple') > -1 &&
 		navigator.userAgent &&
-		navigator.userAgent.indexOf('CriOS') == -1 &&
-		navigator.userAgent.indexOf('FxiOS') == -1;
-	isSafariVer2 = navigator.userAgent.indexOf('Apple') != -1
+		navigator.userAgent.indexOf('Apple') > -1 &&
+		navigator.userAgent.indexOf('Windows') == -1
 
 
 	constructor(public translate: TranslateService, private data: DataService) {
 		this.getPersonalData();
-		// console.log(navigator.userAgent.indexOf('Firefox'))
+		console.log(navigator.userAgent)
 	}
 
 	async getPersonalData() : Promise<void> {
@@ -39,7 +36,7 @@ export class PersonalInfoComponent {
 
 	showCV(url: string) {
 		this.data.downloadPDF(url).subscribe(res  => {
-			if (this.isSafariVer2) window.location.href = URL.createObjectURL(res)
+			if (this.isSafari) window.location.href = URL.createObjectURL(res)
 			else window.open(URL.createObjectURL(res), "_blank")
 		});
 	}
