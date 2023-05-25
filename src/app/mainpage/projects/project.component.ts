@@ -9,7 +9,7 @@ import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 			<div class="container">
 				<img src="{{ projectData.ImgSrc }}" alt="projectImg" />
 				<content>
-					<span>{{ InfoText }}</span>
+					<span [innerHTML]="InfoText"></span>
 					<span>{{ projectData.Particularities }}</span>
 				</content>
 				<div>

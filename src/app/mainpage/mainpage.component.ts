@@ -18,13 +18,10 @@ export class MainpageComponent implements AfterViewInit, OnInit, OnDestroy {
 	title: string = "Portfolio";
 	header: boolean = true;
 	lastScroll: number = 0;
-	headerClass!: string;
 	scrollByFunction: boolean = false;
 	firstInit: number = 0;
 	@ViewChild("appComponents") app_project!: ElementRef;
 	root_DOM_Components_PositionY: Array<number> = [];
-	timeOuts: Array<any> = [];
-	headerArrow: boolean = false;
 	headerArrow_symbol: string = "&#8744;";
 	resizeObservable$!: Observable<Event>;
 	resizeSubscription$!: Subscription;
