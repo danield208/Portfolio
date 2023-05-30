@@ -96,6 +96,7 @@ content {
 	width: 100%;
 	background-image: $backgroundColorGradient;
 	padding-bottom: 1px;
+	position: relative;
 
 	&.input {
 		height: 4rem;
@@ -121,6 +122,7 @@ content {
 	}
 
 	p {
+		position: absolute;
 		right: 8px;
 		color: rgb(255, 97, 97);
 	}
