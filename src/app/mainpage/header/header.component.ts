@@ -9,7 +9,7 @@ import {
 	Input,
 	OnInit,
 	OnDestroy,
-	HostBinding,
+	HostBinding, AfterViewChecked,
 } from "@angular/core";
 import { first, fromEvent, Observable, Subscription } from "rxjs";
 
@@ -18,30 +18,35 @@ import { first, fromEvent, Observable, Subscription } from "rxjs";
 	templateUrl: "./header.component.html",
 	styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
+export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy, AfterViewChecked {
+	//Child
 	@ViewChild("languagePicker") div_DOM!: ElementRef;
 	@ViewChild("nav") nav_DOM!: ElementRef;
 	@ViewChild("main") mainElem!: ElementRef;
 	@ViewChild("buttonText") button!: ElementRef;
+
+	//Input
+	@Input() componentPositions!: Array<number>;
+
+	//Output
+	@Output() scrollByFunction = new EventEmitter<boolean>();
+	@Output() openMobileMenu = new EventEmitter<boolean>();
+
+	//Hostbinding
+	@HostBinding("class.mobileOpen") host: boolean = false;
+
 	div_DOM_SpanChilds: Array<HTMLSpanElement> = [];
 	nav_DOM_SpanChilds: Array<HTMLSpanElement> = [];
-	@Input() componentPositions!: Array<number>;
-	@Output() scrollByFunction = new EventEmitter<boolean>();
 	currentPosition!: string;
-	pageOffset: number = 300;
 	timeouts: Array<any> = [];
-	showMobileNav: boolean = true;
 	components: Array<string> = ["start", "projects", "personal", "contact"];
 	windowMobileWidth: number = 646;
 	resizeObservable$!: Observable<Event>;
 	resizeSubscription$!: Subscription;
 	mobileView: boolean = false;
-	mobileNavOpen: boolean = true;
 	translateObserv$: any;
 	openMobileNav: boolean = true;
 	projectBreak: number = 1310;
-	@Output() openMobileMenu = new EventEmitter<boolean>();
-	@HostBinding("class.mobileOpen") host: boolean = false;
 
 	constructor(public translate: TranslateService) {
 		if (window.innerWidth <= this.windowMobileWidth) {
@@ -102,6 +107,10 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 		this.ifLocalStorage_init();
 	}
 
+	ngAfterViewChecked() {
+	this.firstPositionCheck()
+	}
+
 	setLanguagePickerChilds() {
 		this.div_DOM_SpanChilds.push(this.div_DOM.nativeElement.firstChild);
 		this.div_DOM_SpanChilds.push(this.div_DOM.nativeElement.lastChild);
@@ -114,31 +123,35 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 				this.nav_DOM_SpanChilds.push(child);
 			}
 		});
+		this.firstPositionCheck()
 		this.addEventListeners();
 	}
 
-	addEventListeners() {
-		window.addEventListener("scroll", () => {
-			this.components.forEach((component: string) => {
-				if (this.checkComponentCollision(component)) {
-					this.currentPosition = component;
-					this.setNavStile();
-				}
-			});
-		});
+	firstPositionCheck() {
 		if (!this.mobileView || !this.openMobileNav) {
-			setTimeout(() => {
+			//setTimeout(() => {
 				this.components.forEach((component: string) => {
 					if (this.checkComponentCollision(component)) {
 						this.currentPosition = component;
 						this.setNavStile();
 					}
 				});
-			}, 20);
+			//}, 20);
 		}
 	}
 
-	checkComponentCollision(component: string): any {
+	addEventListeners() {
+		window.addEventListener("scroll", () => {
+				this.components.forEach((component: string) => {
+					if (this.checkComponentCollision(component)) {
+						this.currentPosition = component;
+						this.setNavStile();
+					}
+				});
+		});
+	}
+
+	checkComponentCollision(component: string): boolean | void {
 		let headerIfStatements: Array<Boolean>;
 		if (this.projectBreak >= window.innerWidth) {
 			headerIfStatements = [

@@ -35,6 +35,18 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+
+	a {
+		text-decoration: none;
+		background-image: $backgroundColorGradient;
+		background-repeat: no-repeat;
+		background-position: bottom;
+		background-size: 0% 0px;
+		&:hover {
+			transition: background-size 225ms ease-in-out;
+			background-size: 100% 1px;
+		}
+	}
 }
 
 .separator {

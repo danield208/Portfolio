@@ -90,18 +90,21 @@ content {
 }
 
 .cube {
-	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+	background-image: $backgroundColorGradient;
+	padding-bottom: 1px;
 
 	&.input {
 		height: 4rem;
 	}
 
 	&.text {
+		padding: 1px;
 		height: 150px;
+		border-radius: 8px;
 	}
 
 	&.button {
@@ -109,41 +112,48 @@ content {
 	}
 
 	input {
-		position: absolute;
-		margin-bottom: 1px;
 		background-color: $backgroundColor;
 		width: 100%;
-		height: calc(100% - 1px);
+		height: 100%;
 		border: none;
-		padding-left: 8px;
+		padding-left: 12px;
+		border-radius: 0;
 	}
 
 	p {
-		position: absolute;
 		right: 8px;
 		color: rgb(255, 97, 97);
 	}
 
 	textarea {
-		position: absolute;
 		background-color: $backgroundColor;
-		width: calc(100% - 2px);
-		height: calc(100% - 2px);
+		width: 100%;
+		height: 100%;
 		border: none;
 		border-radius: 8px;
-		padding: 5px 8px;
+		padding: 12px;
 		resize: none;
 	}
+}
+
+.submitButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: $backgroundColorGradient;
+	width: 8rem;
+	height: 3rem;
+	padding: 1px;
+	border-radius: 8px;
+	font-size: 1.2rem;
+	cursor: pointer;
 
 	button {
-		position: absolute;
+		width: 100%;
+		height: 100%;
 		background-color: $backgroundColor;
-		width: calc(8rem - 2px);
-		height: calc(100% - 2px);
 		border: unset;
 		border-radius: 8px;
-		font-size: 1.2rem;
-		cursor: pointer;
 
 		&:hover {
 			background-color: $backgroundColor2;
@@ -157,30 +167,11 @@ content {
 	}
 }
 
-.border {
-	position: absolute;
-	background-image: $backgroundColorGradient;
-	height: 4rem;
-	width: 100%;
-}
-
-.borderTextarea {
-	position: absolute;
-	border-radius: 8px;
-	height: 150px;
-	width: 100%;
-	background-image: $backgroundColorGradient;
-}
-
-.borderButton {
-	position: absolute;
-	width: 8rem;
-	border-radius: 8px;
-	height: 3rem;
-	background-image: $backgroundColorGradient;
-}
-
 @media (max-width: $maxWidth_Mobile_1000) {
+	:host {
+		padding: 42px 0px;
+	}
+
 	content {
 		h1 {
 			font-size: 2rem;
@@ -198,6 +189,9 @@ content {
 	content {
 		h1 {
 			font-size: 1.5rem;
+		}
+		h2 {
+			font-size: 1.2rem;
 		}
 	}
 }
